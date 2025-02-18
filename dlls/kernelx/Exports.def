@@ -2,10 +2,10 @@ LIBRARY kernelx
 EXPORTS
 	XMemAlloc				            = XMemAlloc_X					                    @504
 	XMemAllocDefault		            = XMemAllocDefault_X			                    @505
-	EventRegister                       = Advapi32.EventRegister                               @95
+	EventRegister                       = Advapi32.EventRegister                            @95
 	XMemFree                            = XMemFree_X                                        @507
 	XMemFreeDefault                     = XMemFreeDefault_X                                 @508
-	XMemSetAllocationHooks		    = XMemSetAllocationHooks_X				@514
+	XMemSetAllocationHooks				= XMemSetAllocationHooks_X							@514
 	GetConsoleType                      = GetConsoleType_X                                  @140
 	AcquireSRWLockExclusive             = Kernel32.AcquireSRWLockExclusive                  @1
 	AcquireSRWLockShared                = Kernel32.AcquireSRWLockShared                     @2
@@ -478,7 +478,7 @@ EXPORTS
 	UnregisterTraceGuids                = Kernel32.UnregisterTraceGuids                     @471
 	UnregisterWaitEx                    = Kernel32.UnregisterWaitEx                         @472
 	UpdateProcThreadAttribute           = Kernel32.UpdateProcThreadAttribute                @473
-	VirtualAlloc                        = Kernel32.VirtualAlloc                             @474
+	VirtualAlloc                        = VirtualAlloc_X									@474
 	VirtualAllocEx                      = Kernel32.VirtualAllocEx                           @475
 	VirtualFree                         = Kernel32.VirtualFree                              @476
 	VirtualFreeEx                       = Kernel32.VirtualFreeEx                            @477

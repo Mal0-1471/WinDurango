@@ -527,3 +527,7 @@ NTSTATUS NlsProcessDestroy(HINSTANCE hInstance, DWORD forwardReason, LPVOID lpvR
     return result;
 }
 
+LPVOID __stdcall VirtualAlloc_X(LPVOID lpAddress, SIZE_T dwSize, DWORD flAllocationType, DWORD flProtect)
+{
+	return VirtualAllocEx(GetCurrentProcess(), lpAddress, dwSize, flAllocationType, flProtect);
+}
