@@ -26,6 +26,6 @@ namespace winrt::Windows::Kinect::implementation
     {
         BodyIndexFrameArrivedEventArgs() = default;
 
-        winrt::Windows::Kinect::BodyIndexFrameReference FrameReference();
+        BodyIndexFrameReference FrameReference();
     };
 }

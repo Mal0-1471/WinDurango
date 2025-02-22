@@ -31,23 +31,23 @@ namespace winrt::Windows::Kinect::implementation
     {
         throw hresult_not_implemented();
     }
-    void DepthFrame::CopyFrameDataToBuffer(winrt::Windows::Storage::Streams::IBuffer const& buffer)
+    void DepthFrame::CopyFrameDataToBuffer(Storage::Streams::IBuffer const& buffer)
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Storage::Streams::IBuffer DepthFrame::LockImageBuffer()
+    Storage::Streams::IBuffer DepthFrame::LockImageBuffer()
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Kinect::FrameDescription DepthFrame::FrameDescription()
+    FrameDescription DepthFrame::FrameDescription()
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Foundation::TimeSpan DepthFrame::RelativeTime()
+    Foundation::TimeSpan DepthFrame::RelativeTime()
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Kinect::DepthFrameSource DepthFrame::DepthFrameSource()
+    DepthFrameSource DepthFrame::DepthFrameSource()
     {
         throw hresult_not_implemented();
     }

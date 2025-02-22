@@ -26,11 +26,11 @@ namespace winrt::Windows::Kinect::implementation
     {
         InfraredFrameSource() = default;
 
-        winrt::event_token FrameCaptured(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Kinect::InfraredFrameSource, winrt::Windows::Kinect::FrameCapturedEventArgs> const& value);
-        void FrameCaptured(winrt::event_token const& token) noexcept;
+        event_token FrameCaptured(Foundation::TypedEventHandler<Kinect::InfraredFrameSource, FrameCapturedEventArgs> const& value);
+        void FrameCaptured(event_token const& token) noexcept;
         bool IsActive();
-        winrt::Windows::Kinect::InfraredFrameReader OpenReader();
-        winrt::Windows::Kinect::FrameDescription FrameDescription();
-        winrt::Windows::Kinect::KinectSensor KinectSensor();
+        InfraredFrameReader OpenReader();
+        FrameDescription FrameDescription();
+        KinectSensor KinectSensor();
     };
 }

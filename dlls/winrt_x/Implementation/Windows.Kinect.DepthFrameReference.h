@@ -26,7 +26,7 @@ namespace winrt::Windows::Kinect::implementation
     {
         DepthFrameReference() = default;
 
-        winrt::Windows::Kinect::DepthFrame AcquireFrame();
-        winrt::Windows::Foundation::TimeSpan RelativeTime();
+        DepthFrame AcquireFrame();
+        Foundation::TimeSpan RelativeTime();
     };
 }

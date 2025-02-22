@@ -27,10 +27,10 @@ namespace winrt::Windows::Kinect::implementation
         MultiSourceFrame() = default;
 
         void Close();
-        winrt::Windows::Kinect::ColorFrameReference ColorFrameReference();
-        winrt::Windows::Kinect::DepthFrameReference DepthFrameReference();
-        winrt::Windows::Kinect::BodyFrameReference BodyFrameReference();
-        winrt::Windows::Kinect::BodyIndexFrameReference BodyIndexFrameReference();
-        winrt::Windows::Kinect::InfraredFrameReference InfraredFrameReference();
+        ColorFrameReference ColorFrameReference();
+        DepthFrameReference DepthFrameReference();
+        BodyFrameReference BodyFrameReference();
+        BodyIndexFrameReference BodyIndexFrameReference();
+        InfraredFrameReference InfraredFrameReference();
     };
 }

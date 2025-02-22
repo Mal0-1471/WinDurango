@@ -26,7 +26,7 @@ namespace winrt::Windows::Kinect::implementation
     {
         InfraredFrameReference() = default;
 
-        winrt::Windows::Kinect::InfraredFrame AcquireFrame();
-        winrt::Windows::Foundation::TimeSpan RelativeTime();
+        InfraredFrame AcquireFrame();
+        Foundation::TimeSpan RelativeTime();
     };
 }

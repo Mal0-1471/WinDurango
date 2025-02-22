@@ -23,11 +23,11 @@
 
 namespace winrt::Windows::Kinect::implementation
 {
-    winrt::Windows::Kinect::ColorFrame ColorFrameReference::AcquireFrame()
+    ColorFrame ColorFrameReference::AcquireFrame()
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Foundation::TimeSpan ColorFrameReference::RelativeTime()
+    Foundation::TimeSpan ColorFrameReference::RelativeTime()
     {
         throw hresult_not_implemented();
     }

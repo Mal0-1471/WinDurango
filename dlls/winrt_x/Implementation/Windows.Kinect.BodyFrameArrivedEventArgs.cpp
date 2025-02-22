@@ -23,7 +23,7 @@
 
 namespace winrt::Windows::Kinect::implementation
 {
-    winrt::Windows::Kinect::BodyFrameReference BodyFrameArrivedEventArgs::FrameReference()
+    BodyFrameReference BodyFrameArrivedEventArgs::FrameReference()
     {
         throw hresult_not_implemented();
     }

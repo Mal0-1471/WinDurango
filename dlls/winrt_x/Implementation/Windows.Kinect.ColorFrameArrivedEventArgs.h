@@ -26,6 +26,6 @@ namespace winrt::Windows::Kinect::implementation
     {
         ColorFrameArrivedEventArgs() = default;
 
-        winrt::Windows::Kinect::ColorFrameReference FrameReference();
+        ColorFrameReference FrameReference();
     };
 }

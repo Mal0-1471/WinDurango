@@ -28,10 +28,10 @@ namespace winrt::Windows::Kinect::implementation
 
         void Close();
         void CopyFrameDataToArray(array_view<uint8_t> frameData);
-        void CopyFrameDataToBuffer(winrt::Windows::Storage::Streams::IBuffer const& buffer);
-        winrt::Windows::Storage::Streams::IBuffer LockImageBuffer();
-        winrt::Windows::Kinect::FrameDescription FrameDescription();
-        winrt::Windows::Foundation::TimeSpan RelativeTime();
-        winrt::Windows::Kinect::BodyIndexFrameSource BodyIndexFrameSource();
+        void CopyFrameDataToBuffer(Storage::Streams::IBuffer const& buffer);
+        Storage::Streams::IBuffer LockImageBuffer();
+        FrameDescription FrameDescription();
+        Foundation::TimeSpan RelativeTime();
+        BodyIndexFrameSource BodyIndexFrameSource();
     };
 }

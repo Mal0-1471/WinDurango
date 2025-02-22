@@ -23,11 +23,11 @@
 
 namespace winrt::Windows::Kinect::implementation
 {
-    winrt::event_token DepthFrameSource::FrameCaptured(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Kinect::DepthFrameSource, winrt::Windows::Kinect::FrameCapturedEventArgs> const& value)
+    event_token DepthFrameSource::FrameCaptured(Foundation::TypedEventHandler<Kinect::DepthFrameSource, FrameCapturedEventArgs> const& value)
     {
         throw hresult_not_implemented();
     }
-    void DepthFrameSource::FrameCaptured(winrt::event_token const& token) noexcept
+    void DepthFrameSource::FrameCaptured(event_token const& token) noexcept
     {
         throw hresult_not_implemented();
     }
@@ -35,7 +35,7 @@ namespace winrt::Windows::Kinect::implementation
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Kinect::DepthFrameReader DepthFrameSource::OpenReader()
+    DepthFrameReader DepthFrameSource::OpenReader()
     {
         throw hresult_not_implemented();
     }
@@ -47,11 +47,11 @@ namespace winrt::Windows::Kinect::implementation
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Kinect::FrameDescription DepthFrameSource::FrameDescription()
+    FrameDescription DepthFrameSource::FrameDescription()
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Kinect::KinectSensor DepthFrameSource::KinectSensor()
+    KinectSensor DepthFrameSource::KinectSensor()
     {
         throw hresult_not_implemented();
     }

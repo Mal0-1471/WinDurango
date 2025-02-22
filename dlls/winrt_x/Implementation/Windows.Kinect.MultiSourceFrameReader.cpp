@@ -27,19 +27,19 @@ namespace winrt::Windows::Kinect::implementation
     {
         throw hresult_not_implemented();
     }
-    winrt::event_token MultiSourceFrameReader::MultiSourceFrameArrived(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Kinect::MultiSourceFrameReader, winrt::Windows::Kinect::MultiSourceFrameArrivedEventArgs> const& value)
+    event_token MultiSourceFrameReader::MultiSourceFrameArrived(Foundation::TypedEventHandler<Kinect::MultiSourceFrameReader, MultiSourceFrameArrivedEventArgs> const& value)
     {
         throw hresult_not_implemented();
     }
-    void MultiSourceFrameReader::MultiSourceFrameArrived(winrt::event_token const& token) noexcept
+    void MultiSourceFrameReader::MultiSourceFrameArrived(event_token const& token) noexcept
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Kinect::MultiSourceFrame MultiSourceFrameReader::AcquireLatestFrame()
+    MultiSourceFrame MultiSourceFrameReader::AcquireLatestFrame()
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Kinect::FrameSourceTypes MultiSourceFrameReader::FrameSourceTypes()
+    FrameSourceTypes MultiSourceFrameReader::FrameSourceTypes()
     {
         throw hresult_not_implemented();
     }
@@ -51,7 +51,7 @@ namespace winrt::Windows::Kinect::implementation
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Kinect::KinectSensor MultiSourceFrameReader::KinectSensor()
+    KinectSensor MultiSourceFrameReader::KinectSensor()
     {
         throw hresult_not_implemented();
     }

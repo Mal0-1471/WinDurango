@@ -26,8 +26,8 @@ namespace winrt::Windows::Kinect::implementation
     {
         FrameCapturedEventArgs() = default;
 
-        winrt::Windows::Kinect::FrameSourceTypes FrameType();
-        winrt::Windows::Kinect::FrameCapturedStatus FrameStatus();
-        winrt::Windows::Foundation::TimeSpan RelativeTime();
+        FrameSourceTypes FrameType();
+        FrameCapturedStatus FrameStatus();
+        Foundation::TimeSpan RelativeTime();
     };
 }

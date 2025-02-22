@@ -27,15 +27,15 @@ namespace winrt::Windows::Kinect::implementation
     {
         throw hresult_not_implemented();
     }
-    winrt::event_token AudioFrameReader::FrameArrived(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Kinect::AudioFrameReader, winrt::Windows::Kinect::AudioFrameArrivedEventArgs> const& value)
+    event_token AudioFrameReader::FrameArrived(Foundation::TypedEventHandler<Kinect::AudioFrameReader, AudioFrameArrivedEventArgs> const& value)
     {
         throw hresult_not_implemented();
     }
-    void AudioFrameReader::FrameArrived(winrt::event_token const& token) noexcept
+    void AudioFrameReader::FrameArrived(event_token const& token) noexcept
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::Kinect::AudioBeamFrame> AudioFrameReader::AcquireLatestBeamFrames()
+    Foundation::Collections::IVectorView<AudioBeamFrame> AudioFrameReader::AcquireLatestBeamFrames()
     {
         throw hresult_not_implemented();
     }
@@ -47,7 +47,7 @@ namespace winrt::Windows::Kinect::implementation
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Kinect::AudioSource AudioFrameReader::AudioSource()
+    AudioSource AudioFrameReader::AudioSource()
     {
         throw hresult_not_implemented();
     }

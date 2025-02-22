@@ -23,7 +23,7 @@
 
 namespace winrt::Windows::Kinect::implementation
 {
-    winrt::Windows::Kinect::DepthFrameReference DepthFrameArrivedEventArgs::FrameReference()
+    DepthFrameReference DepthFrameArrivedEventArgs::FrameReference()
     {
         throw hresult_not_implemented();
     }

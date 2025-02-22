@@ -27,15 +27,15 @@ namespace winrt::Windows::Kinect::implementation
     {
         throw hresult_not_implemented();
     }
-    winrt::event_token InfraredFrameReader::FrameArrived(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Kinect::InfraredFrameReader, winrt::Windows::Kinect::InfraredFrameArrivedEventArgs> const& value)
+    event_token InfraredFrameReader::FrameArrived(Foundation::TypedEventHandler<Kinect::InfraredFrameReader, InfraredFrameArrivedEventArgs> const& value)
     {
         throw hresult_not_implemented();
     }
-    void InfraredFrameReader::FrameArrived(winrt::event_token const& token) noexcept
+    void InfraredFrameReader::FrameArrived(event_token const& token) noexcept
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Kinect::InfraredFrame InfraredFrameReader::AcquireLatestFrame()
+    InfraredFrame InfraredFrameReader::AcquireLatestFrame()
     {
         throw hresult_not_implemented();
     }
@@ -47,7 +47,7 @@ namespace winrt::Windows::Kinect::implementation
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Kinect::InfraredFrameSource InfraredFrameReader::InfraredFrameSource()
+    InfraredFrameSource InfraredFrameReader::InfraredFrameSource()
     {
         throw hresult_not_implemented();
     }

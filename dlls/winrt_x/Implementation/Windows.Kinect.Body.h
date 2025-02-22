@@ -28,21 +28,21 @@ namespace winrt::Windows::Kinect::implementation
 
         static int32_t JointCount();
         void Close();
-        winrt::Windows::Foundation::Collections::IMapView<winrt::Windows::Kinect::JointType, winrt::Windows::Kinect::Joint> Joints();
-        winrt::Windows::Foundation::Collections::IMapView<winrt::Windows::Kinect::JointType, winrt::Windows::Kinect::JointOrientation> JointOrientations();
-        winrt::Windows::Kinect::DetectionResult Engaged();
-        winrt::Windows::Foundation::Collections::IMapView<winrt::Windows::Kinect::Expression, winrt::Windows::Kinect::DetectionResult> Expressions();
-        winrt::Windows::Foundation::Collections::IMapView<winrt::Windows::Kinect::Activity, winrt::Windows::Kinect::DetectionResult> Activities();
-        winrt::Windows::Foundation::Collections::IMapView<winrt::Windows::Kinect::Appearance, winrt::Windows::Kinect::DetectionResult> Appearance();
-        winrt::Windows::Kinect::HandState HandLeftState();
-        winrt::Windows::Kinect::TrackingConfidence HandLeftConfidence();
-        winrt::Windows::Kinect::HandState HandRightState();
-        winrt::Windows::Kinect::TrackingConfidence HandRightConfidence();
-        winrt::Windows::Kinect::FrameEdges ClippedEdges();
+        Foundation::Collections::IMapView<JointType, Joint> Joints();
+        Foundation::Collections::IMapView<JointType, JointOrientation> JointOrientations();
+        DetectionResult Engaged();
+        Foundation::Collections::IMapView<Expression, DetectionResult> Expressions();
+        Foundation::Collections::IMapView<Activity, DetectionResult> Activities();
+        Foundation::Collections::IMapView<Appearance, DetectionResult> Appearance();
+        HandState HandLeftState();
+        TrackingConfidence HandLeftConfidence();
+        HandState HandRightState();
+        TrackingConfidence HandRightConfidence();
+        FrameEdges ClippedEdges();
         uint64_t TrackingId();
         bool IsTracked();
-        winrt::Windows::Foundation::Point Lean();
-        winrt::Windows::Kinect::TrackingState LeanTrackingState();
+        Foundation::Point Lean();
+        TrackingState LeanTrackingState();
     };
 }
 namespace winrt::Windows::Kinect::factory_implementation

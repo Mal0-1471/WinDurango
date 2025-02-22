@@ -27,10 +27,10 @@ namespace winrt::Windows::Kinect::implementation
         BodyFrame() = default;
 
         void Close();
-        void GetAndRefreshBodyData(winrt::Windows::Foundation::Collections::IVector<winrt::Windows::Kinect::Body> const& bodies);
+        void GetAndRefreshBodyData(Foundation::Collections::IVector<Body> const& bodies);
         int32_t BodyCount();
-        winrt::Windows::Kinect::Vector4 FloorClipPlane();
-        winrt::Windows::Foundation::TimeSpan RelativeTime();
-        winrt::Windows::Kinect::BodyFrameSource BodyFrameSource();
+        Vector4 FloorClipPlane();
+        Foundation::TimeSpan RelativeTime();
+        BodyFrameSource BodyFrameSource();
     };
 }

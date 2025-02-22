@@ -26,6 +26,6 @@ namespace winrt::Windows::Kinect::implementation
     {
         MultiSourceFrameArrivedEventArgs() = default;
 
-        winrt::Windows::Kinect::MultiSourceFrameReference FrameReference();
+        MultiSourceFrameReference FrameReference();
     };
 }

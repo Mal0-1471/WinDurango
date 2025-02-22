@@ -23,7 +23,7 @@
 
 namespace winrt::Windows::Kinect::implementation
 {
-    winrt::Windows::Kinect::InfraredFrameReference InfraredFrameArrivedEventArgs::FrameReference()
+    InfraredFrameReference InfraredFrameArrivedEventArgs::FrameReference()
     {
         throw hresult_not_implemented();
     }

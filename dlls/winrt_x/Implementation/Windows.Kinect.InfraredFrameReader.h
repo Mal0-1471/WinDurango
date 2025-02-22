@@ -27,11 +27,11 @@ namespace winrt::Windows::Kinect::implementation
         InfraredFrameReader() = default;
 
         void Close();
-        winrt::event_token FrameArrived(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Kinect::InfraredFrameReader, winrt::Windows::Kinect::InfraredFrameArrivedEventArgs> const& value);
-        void FrameArrived(winrt::event_token const& token) noexcept;
-        winrt::Windows::Kinect::InfraredFrame AcquireLatestFrame();
+        event_token FrameArrived(Foundation::TypedEventHandler<Kinect::InfraredFrameReader, InfraredFrameArrivedEventArgs> const& value);
+        void FrameArrived(event_token const& token) noexcept;
+        InfraredFrame AcquireLatestFrame();
         bool IsPaused();
         void IsPaused(bool isPaused);
-        winrt::Windows::Kinect::InfraredFrameSource InfraredFrameSource();
+        InfraredFrameSource InfraredFrameSource();
     };
 }

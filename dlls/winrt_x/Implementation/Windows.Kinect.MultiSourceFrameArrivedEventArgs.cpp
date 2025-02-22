@@ -23,7 +23,7 @@
 
 namespace winrt::Windows::Kinect::implementation
 {
-    winrt::Windows::Kinect::MultiSourceFrameReference MultiSourceFrameArrivedEventArgs::FrameReference()
+    MultiSourceFrameReference MultiSourceFrameArrivedEventArgs::FrameReference()
     {
         throw hresult_not_implemented();
     }

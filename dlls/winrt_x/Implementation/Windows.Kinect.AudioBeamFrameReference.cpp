@@ -23,11 +23,11 @@
 
 namespace winrt::Windows::Kinect::implementation
 {
-    winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::Kinect::AudioBeamFrame> AudioBeamFrameReference::AcquireBeamFrames()
+    Foundation::Collections::IVectorView<AudioBeamFrame> AudioBeamFrameReference::AcquireBeamFrames()
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Foundation::TimeSpan AudioBeamFrameReference::RelativeTime()
+    Foundation::TimeSpan AudioBeamFrameReference::RelativeTime()
     {
         throw hresult_not_implemented();
     }

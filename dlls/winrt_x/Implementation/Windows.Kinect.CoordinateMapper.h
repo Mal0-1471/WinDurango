@@ -26,18 +26,18 @@ namespace winrt::Windows::Kinect::implementation
     {
         CoordinateMapper() = default;
 
-        winrt::Windows::Kinect::DepthSpacePoint MapCameraPointToDepthSpace(winrt::Windows::Kinect::CameraSpacePoint const& cameraPoint);
-        winrt::Windows::Kinect::ColorSpacePoint MapCameraPointToColorSpace(winrt::Windows::Kinect::CameraSpacePoint const& cameraPoint);
-        winrt::Windows::Kinect::CameraSpacePoint MapDepthPointToCameraSpace(winrt::Windows::Kinect::DepthSpacePoint const& depthPoint, uint16_t depth);
-        winrt::Windows::Kinect::ColorSpacePoint MapDepthPointToColorSpace(winrt::Windows::Kinect::DepthSpacePoint const& depthPoint, uint16_t depth);
-        void MapDepthFrameToCameraSpace(array_view<uint16_t const> depthFrameData, array_view<winrt::Windows::Kinect::CameraSpacePoint> cameraSpacePoints);
-        void MapDepthFrameToColorSpace(array_view<uint16_t const> depthFrameData, array_view<winrt::Windows::Kinect::ColorSpacePoint> colorSpacePoints);
-        void MapDepthFrameToCameraSpaceUsingIBuffer(winrt::Windows::Storage::Streams::IBuffer const& depthFrameData, array_view<winrt::Windows::Kinect::CameraSpacePoint> cameraSpacePoints);
-        void MapDepthFrameToColorSpaceUsingIBuffer(winrt::Windows::Storage::Streams::IBuffer const& depthFrameData, array_view<winrt::Windows::Kinect::ColorSpacePoint> colorSpacePoints);
-        void MapColorFrameToDepthSpace(array_view<uint16_t const> depthFrameData, array_view<winrt::Windows::Kinect::DepthSpacePoint> depthSpacePoints);
-        void MapColorFrameToCameraSpace(array_view<uint16_t const> depthFrameData, array_view<winrt::Windows::Kinect::CameraSpacePoint> cameraSpacePoints);
-        void MapColorFrameToDepthSpaceUsingIBuffer(winrt::Windows::Storage::Streams::IBuffer const& depthFrameData, array_view<winrt::Windows::Kinect::DepthSpacePoint> depthSpacePoints);
-        void MapColorFrameToCameraSpaceUsingIBuffer(winrt::Windows::Storage::Streams::IBuffer const& depthFrameData, array_view<winrt::Windows::Kinect::CameraSpacePoint> cameraSpacePoints);
-        com_array<winrt::Windows::Foundation::Point> GetDepthFrameToCameraSpaceTable();
+        DepthSpacePoint MapCameraPointToDepthSpace(CameraSpacePoint const& cameraPoint);
+        ColorSpacePoint MapCameraPointToColorSpace(CameraSpacePoint const& cameraPoint);
+        CameraSpacePoint MapDepthPointToCameraSpace(DepthSpacePoint const& depthPoint, uint16_t depth);
+        ColorSpacePoint MapDepthPointToColorSpace(DepthSpacePoint const& depthPoint, uint16_t depth);
+        void MapDepthFrameToCameraSpace(array_view<uint16_t const> depthFrameData, array_view<CameraSpacePoint> cameraSpacePoints);
+        void MapDepthFrameToColorSpace(array_view<uint16_t const> depthFrameData, array_view<ColorSpacePoint> colorSpacePoints);
+        void MapDepthFrameToCameraSpaceUsingIBuffer(Storage::Streams::IBuffer const& depthFrameData, array_view<CameraSpacePoint> cameraSpacePoints);
+        void MapDepthFrameToColorSpaceUsingIBuffer(Storage::Streams::IBuffer const& depthFrameData, array_view<ColorSpacePoint> colorSpacePoints);
+        void MapColorFrameToDepthSpace(array_view<uint16_t const> depthFrameData, array_view<DepthSpacePoint> depthSpacePoints);
+        void MapColorFrameToCameraSpace(array_view<uint16_t const> depthFrameData, array_view<CameraSpacePoint> cameraSpacePoints);
+        void MapColorFrameToDepthSpaceUsingIBuffer(Storage::Streams::IBuffer const& depthFrameData, array_view<DepthSpacePoint> depthSpacePoints);
+        void MapColorFrameToCameraSpaceUsingIBuffer(Storage::Streams::IBuffer const& depthFrameData, array_view<CameraSpacePoint> cameraSpacePoints);
+        com_array<Foundation::Point> GetDepthFrameToCameraSpaceTable();
     };
 }

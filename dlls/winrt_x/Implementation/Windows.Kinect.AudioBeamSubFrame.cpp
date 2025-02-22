@@ -31,7 +31,7 @@ namespace winrt::Windows::Kinect::implementation
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Foundation::TimeSpan AudioBeamSubFrame::Duration()
+    Foundation::TimeSpan AudioBeamSubFrame::Duration()
     {
         throw hresult_not_implemented();
     }
@@ -43,15 +43,15 @@ namespace winrt::Windows::Kinect::implementation
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Kinect::AudioBeamMode AudioBeamSubFrame::AudioBeamMode()
+    AudioBeamMode AudioBeamSubFrame::AudioBeamMode()
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Foundation::TimeSpan AudioBeamSubFrame::RelativeTime()
+    Foundation::TimeSpan AudioBeamSubFrame::RelativeTime()
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::Kinect::AudioBodyCorrelation> AudioBeamSubFrame::AudioBodyCorrelations()
+    Foundation::Collections::IVectorView<AudioBodyCorrelation> AudioBeamSubFrame::AudioBodyCorrelations()
     {
         throw hresult_not_implemented();
     }
@@ -59,11 +59,11 @@ namespace winrt::Windows::Kinect::implementation
     {
         throw hresult_not_implemented();
     }
-    void AudioBeamSubFrame::CopyFrameDataToBuffer(winrt::Windows::Storage::Streams::IBuffer const& buffer)
+    void AudioBeamSubFrame::CopyFrameDataToBuffer(Storage::Streams::IBuffer const& buffer)
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Storage::Streams::IBuffer AudioBeamSubFrame::LockAudioBuffer()
+    Storage::Streams::IBuffer AudioBeamSubFrame::LockAudioBuffer()
     {
         throw hresult_not_implemented();
     }

@@ -26,12 +26,12 @@ namespace winrt::Windows::Kinect::implementation
     {
         BodyFrameSource() = default;
 
-        winrt::event_token FrameCaptured(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Kinect::BodyFrameSource, winrt::Windows::Kinect::FrameCapturedEventArgs> const& value);
-        void FrameCaptured(winrt::event_token const& token) noexcept;
+        event_token FrameCaptured(Foundation::TypedEventHandler<Kinect::BodyFrameSource, FrameCapturedEventArgs> const& value);
+        void FrameCaptured(event_token const& token) noexcept;
         bool IsActive();
         int32_t BodyCount();
-        winrt::Windows::Kinect::BodyFrameReader OpenReader();
-        winrt::Windows::Kinect::KinectSensor KinectSensor();
+        BodyFrameReader OpenReader();
+        KinectSensor KinectSensor();
         void OverrideHandTracking(uint64_t trackingId);
         void OverrideHandTracking(uint64_t oldTrackingId, uint64_t newTrackingId);
     };

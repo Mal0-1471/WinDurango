@@ -31,47 +31,47 @@ namespace winrt::Windows::Kinect::implementation
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Foundation::Collections::IMapView<winrt::Windows::Kinect::JointType, winrt::Windows::Kinect::Joint> Body::Joints()
+    Foundation::Collections::IMapView<JointType, Joint> Body::Joints()
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Foundation::Collections::IMapView<winrt::Windows::Kinect::JointType, winrt::Windows::Kinect::JointOrientation> Body::JointOrientations()
+    Foundation::Collections::IMapView<JointType, JointOrientation> Body::JointOrientations()
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Kinect::DetectionResult Body::Engaged()
+    DetectionResult Body::Engaged()
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Foundation::Collections::IMapView<winrt::Windows::Kinect::Expression, winrt::Windows::Kinect::DetectionResult> Body::Expressions()
+    Foundation::Collections::IMapView<Expression, DetectionResult> Body::Expressions()
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Foundation::Collections::IMapView<winrt::Windows::Kinect::Activity, winrt::Windows::Kinect::DetectionResult> Body::Activities()
+    Foundation::Collections::IMapView<Activity, DetectionResult> Body::Activities()
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Foundation::Collections::IMapView<winrt::Windows::Kinect::Appearance, winrt::Windows::Kinect::DetectionResult> Body::Appearance()
+    Foundation::Collections::IMapView<Appearance, DetectionResult> Body::Appearance()
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Kinect::HandState Body::HandLeftState()
+    HandState Body::HandLeftState()
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Kinect::TrackingConfidence Body::HandLeftConfidence()
+    TrackingConfidence Body::HandLeftConfidence()
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Kinect::HandState Body::HandRightState()
+    HandState Body::HandRightState()
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Kinect::TrackingConfidence Body::HandRightConfidence()
+    TrackingConfidence Body::HandRightConfidence()
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Kinect::FrameEdges Body::ClippedEdges()
+    FrameEdges Body::ClippedEdges()
     {
         throw hresult_not_implemented();
     }
@@ -83,11 +83,11 @@ namespace winrt::Windows::Kinect::implementation
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Foundation::Point Body::Lean()
+    Foundation::Point Body::Lean()
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Kinect::TrackingState Body::LeanTrackingState()
+    TrackingState Body::LeanTrackingState()
     {
         throw hresult_not_implemented();
     }

@@ -27,15 +27,15 @@ namespace winrt::Windows::Kinect::implementation
     {
         throw hresult_not_implemented();
     }
-    winrt::event_token ColorFrameReader::FrameArrived(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Kinect::ColorFrameReader, winrt::Windows::Kinect::ColorFrameArrivedEventArgs> const& value)
+    event_token ColorFrameReader::FrameArrived(Foundation::TypedEventHandler<Kinect::ColorFrameReader, ColorFrameArrivedEventArgs> const& value)
     {
         throw hresult_not_implemented();
     }
-    void ColorFrameReader::FrameArrived(winrt::event_token const& token) noexcept
+    void ColorFrameReader::FrameArrived(event_token const& token) noexcept
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Kinect::ColorFrame ColorFrameReader::AcquireLatestFrame()
+    ColorFrame ColorFrameReader::AcquireLatestFrame()
     {
         throw hresult_not_implemented();
     }
@@ -47,7 +47,7 @@ namespace winrt::Windows::Kinect::implementation
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Kinect::ColorFrameSource ColorFrameReader::ColorFrameSource()
+    ColorFrameSource ColorFrameReader::ColorFrameSource()
     {
         throw hresult_not_implemented();
     }

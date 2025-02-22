@@ -27,11 +27,11 @@ namespace winrt::Windows::Kinect::implementation
         DepthFrameReader() = default;
 
         void Close();
-        winrt::event_token FrameArrived(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Kinect::DepthFrameReader, winrt::Windows::Kinect::DepthFrameArrivedEventArgs> const& value);
-        void FrameArrived(winrt::event_token const& token) noexcept;
-        winrt::Windows::Kinect::DepthFrame AcquireLatestFrame();
+        event_token FrameArrived(Foundation::TypedEventHandler<Kinect::DepthFrameReader, DepthFrameArrivedEventArgs> const& value);
+        void FrameArrived(event_token const& token) noexcept;
+        DepthFrame AcquireLatestFrame();
         bool IsPaused();
         void IsPaused(bool isPaused);
-        winrt::Windows::Kinect::DepthFrameSource DepthFrameSource();
+        DepthFrameSource DepthFrameSource();
     };
 }

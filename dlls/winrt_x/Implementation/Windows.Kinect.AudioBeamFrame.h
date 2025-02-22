@@ -27,10 +27,10 @@ namespace winrt::Windows::Kinect::implementation
         AudioBeamFrame() = default;
 
         void Close();
-        winrt::Windows::Kinect::AudioSource AudioSource();
-        winrt::Windows::Foundation::TimeSpan Duration();
-        winrt::Windows::Foundation::TimeSpan RelativeTimeStart();
-        winrt::Windows::Kinect::AudioBeam AudioBeam();
-        winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::Kinect::AudioBeamSubFrame> SubFrames();
+        AudioSource AudioSource();
+        Foundation::TimeSpan Duration();
+        Foundation::TimeSpan RelativeTimeStart();
+        AudioBeam AudioBeam();
+        Foundation::Collections::IVectorView<AudioBeamSubFrame> SubFrames();
     };
 }

@@ -31,23 +31,23 @@ namespace winrt::Windows::Kinect::implementation
     {
         throw hresult_not_implemented();
     }
-    void BodyIndexFrame::CopyFrameDataToBuffer(winrt::Windows::Storage::Streams::IBuffer const& buffer)
+    void BodyIndexFrame::CopyFrameDataToBuffer(Storage::Streams::IBuffer const& buffer)
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Storage::Streams::IBuffer BodyIndexFrame::LockImageBuffer()
+    Storage::Streams::IBuffer BodyIndexFrame::LockImageBuffer()
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Kinect::FrameDescription BodyIndexFrame::FrameDescription()
+    FrameDescription BodyIndexFrame::FrameDescription()
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Foundation::TimeSpan BodyIndexFrame::RelativeTime()
+    Foundation::TimeSpan BodyIndexFrame::RelativeTime()
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Kinect::BodyIndexFrameSource BodyIndexFrame::BodyIndexFrameSource()
+    BodyIndexFrameSource BodyIndexFrame::BodyIndexFrameSource()
     {
         throw hresult_not_implemented();
     }

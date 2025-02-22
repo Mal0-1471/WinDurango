@@ -26,7 +26,7 @@ namespace winrt::Windows::Kinect::implementation
     {
         ColorFrameReference() = default;
 
-        winrt::Windows::Kinect::ColorFrame AcquireFrame();
-        winrt::Windows::Foundation::TimeSpan RelativeTime();
+        ColorFrame AcquireFrame();
+        Foundation::TimeSpan RelativeTime();
     };
 }

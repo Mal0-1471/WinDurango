@@ -27,11 +27,11 @@ namespace winrt::Windows::Kinect::implementation
         BodyFrameReader() = default;
 
         void Close();
-        winrt::event_token FrameArrived(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Kinect::BodyFrameReader, winrt::Windows::Kinect::BodyFrameArrivedEventArgs> const& value);
-        void FrameArrived(winrt::event_token const& token) noexcept;
-        winrt::Windows::Kinect::BodyFrame AcquireLatestFrame();
+        event_token FrameArrived(Foundation::TypedEventHandler<Kinect::BodyFrameReader, BodyFrameArrivedEventArgs> const& value);
+        void FrameArrived(event_token const& token) noexcept;
+        BodyFrame AcquireLatestFrame();
         bool IsPaused();
         void IsPaused(bool isPaused);
-        winrt::Windows::Kinect::BodyFrameSource BodyFrameSource();
+        BodyFrameSource BodyFrameSource();
     };
 }

@@ -26,7 +26,7 @@ namespace winrt::Windows::Kinect::implementation
     {
         BodyFrameReference() = default;
 
-        winrt::Windows::Kinect::BodyFrame AcquireFrame();
-        winrt::Windows::Foundation::TimeSpan RelativeTime();
+        BodyFrame AcquireFrame();
+        Foundation::TimeSpan RelativeTime();
     };
 }

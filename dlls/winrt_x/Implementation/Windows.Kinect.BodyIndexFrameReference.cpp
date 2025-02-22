@@ -23,11 +23,11 @@
 
 namespace winrt::Windows::Kinect::implementation
 {
-    winrt::Windows::Kinect::BodyIndexFrame BodyIndexFrameReference::AcquireFrame()
+    BodyIndexFrame BodyIndexFrameReference::AcquireFrame()
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Foundation::TimeSpan BodyIndexFrameReference::RelativeTime()
+    Foundation::TimeSpan BodyIndexFrameReference::RelativeTime()
     {
         throw hresult_not_implemented();
     }

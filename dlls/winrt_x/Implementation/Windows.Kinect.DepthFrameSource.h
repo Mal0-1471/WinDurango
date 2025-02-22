@@ -26,13 +26,13 @@ namespace winrt::Windows::Kinect::implementation
     {
         DepthFrameSource() = default;
 
-        winrt::event_token FrameCaptured(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Kinect::DepthFrameSource, winrt::Windows::Kinect::FrameCapturedEventArgs> const& value);
-        void FrameCaptured(winrt::event_token const& token) noexcept;
+        event_token FrameCaptured(Foundation::TypedEventHandler<Kinect::DepthFrameSource, FrameCapturedEventArgs> const& value);
+        void FrameCaptured(event_token const& token) noexcept;
         bool IsActive();
-        winrt::Windows::Kinect::DepthFrameReader OpenReader();
+        DepthFrameReader OpenReader();
         uint16_t DepthMinReliableDistance();
         uint16_t DepthMaxReliableDistance();
-        winrt::Windows::Kinect::FrameDescription FrameDescription();
-        winrt::Windows::Kinect::KinectSensor KinectSensor();
+        FrameDescription FrameDescription();
+        KinectSensor KinectSensor();
     };
 }

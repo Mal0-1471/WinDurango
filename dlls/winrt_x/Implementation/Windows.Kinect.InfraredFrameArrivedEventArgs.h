@@ -26,6 +26,6 @@ namespace winrt::Windows::Kinect::implementation
     {
         InfraredFrameArrivedEventArgs() = default;
 
-        winrt::Windows::Kinect::InfraredFrameReference FrameReference();
+        InfraredFrameReference FrameReference();
     };
 }

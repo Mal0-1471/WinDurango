@@ -23,11 +23,11 @@
 
 namespace winrt::Windows::Kinect::implementation
 {
-    winrt::event_token BodyIndexFrameSource::FrameCaptured(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Kinect::BodyIndexFrameSource, winrt::Windows::Kinect::FrameCapturedEventArgs> const& value)
+    event_token BodyIndexFrameSource::FrameCaptured(Foundation::TypedEventHandler<Kinect::BodyIndexFrameSource, FrameCapturedEventArgs> const& value)
     {
         throw hresult_not_implemented();
     }
-    void BodyIndexFrameSource::FrameCaptured(winrt::event_token const& token) noexcept
+    void BodyIndexFrameSource::FrameCaptured(event_token const& token) noexcept
     {
         throw hresult_not_implemented();
     }
@@ -35,15 +35,15 @@ namespace winrt::Windows::Kinect::implementation
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Kinect::BodyIndexFrameReader BodyIndexFrameSource::OpenReader()
+    BodyIndexFrameReader BodyIndexFrameSource::OpenReader()
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Kinect::FrameDescription BodyIndexFrameSource::FrameDescription()
+    FrameDescription BodyIndexFrameSource::FrameDescription()
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Kinect::KinectSensor BodyIndexFrameSource::KinectSensor()
+    KinectSensor BodyIndexFrameSource::KinectSensor()
     {
         throw hresult_not_implemented();
     }

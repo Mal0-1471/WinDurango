@@ -23,7 +23,7 @@
 
 namespace winrt::Windows::Kinect::implementation
 {
-    winrt::Windows::Kinect::ColorFrameReference ColorFrameArrivedEventArgs::FrameReference()
+    ColorFrameReference ColorFrameArrivedEventArgs::FrameReference()
     {
         throw hresult_not_implemented();
     }

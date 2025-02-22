@@ -26,11 +26,11 @@ namespace winrt::Windows::Kinect::implementation
     {
         BodyIndexFrameSource() = default;
 
-        winrt::event_token FrameCaptured(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Kinect::BodyIndexFrameSource, winrt::Windows::Kinect::FrameCapturedEventArgs> const& value);
-        void FrameCaptured(winrt::event_token const& token) noexcept;
+        event_token FrameCaptured(Foundation::TypedEventHandler<Kinect::BodyIndexFrameSource, FrameCapturedEventArgs> const& value);
+        void FrameCaptured(event_token const& token) noexcept;
         bool IsActive();
-        winrt::Windows::Kinect::BodyIndexFrameReader OpenReader();
-        winrt::Windows::Kinect::FrameDescription FrameDescription();
-        winrt::Windows::Kinect::KinectSensor KinectSensor();
+        BodyIndexFrameReader OpenReader();
+        FrameDescription FrameDescription();
+        KinectSensor KinectSensor();
     };
 }

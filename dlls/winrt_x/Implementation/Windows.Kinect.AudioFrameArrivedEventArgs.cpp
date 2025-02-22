@@ -23,7 +23,7 @@
 
 namespace winrt::Windows::Kinect::implementation
 {
-    winrt::Windows::Kinect::AudioBeamFrameReference AudioFrameArrivedEventArgs::FrameReference()
+    AudioBeamFrameReference AudioFrameArrivedEventArgs::FrameReference()
     {
         throw hresult_not_implemented();
     }

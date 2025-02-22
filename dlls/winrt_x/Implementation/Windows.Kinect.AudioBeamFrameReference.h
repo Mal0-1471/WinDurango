@@ -26,7 +26,7 @@ namespace winrt::Windows::Kinect::implementation
     {
         AudioBeamFrameReference() = default;
 
-        winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::Kinect::AudioBeamFrame> AcquireBeamFrames();
-        winrt::Windows::Foundation::TimeSpan RelativeTime();
+        Foundation::Collections::IVectorView<AudioBeamFrame> AcquireBeamFrames();
+        Foundation::TimeSpan RelativeTime();
     };
 }

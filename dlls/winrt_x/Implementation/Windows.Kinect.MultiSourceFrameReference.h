@@ -26,6 +26,6 @@ namespace winrt::Windows::Kinect::implementation
     {
         MultiSourceFrameReference() = default;
 
-        winrt::Windows::Kinect::MultiSourceFrame AcquireFrame();
+        MultiSourceFrame AcquireFrame();
     };
 }

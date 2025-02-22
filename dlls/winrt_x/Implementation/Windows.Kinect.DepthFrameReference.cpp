@@ -23,11 +23,11 @@
 
 namespace winrt::Windows::Kinect::implementation
 {
-    winrt::Windows::Kinect::DepthFrame DepthFrameReference::AcquireFrame()
+    DepthFrame DepthFrameReference::AcquireFrame()
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Foundation::TimeSpan DepthFrameReference::RelativeTime()
+    Foundation::TimeSpan DepthFrameReference::RelativeTime()
     {
         throw hresult_not_implemented();
     }

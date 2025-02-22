@@ -26,14 +26,14 @@ namespace winrt::Windows::Kinect::implementation
     {
         AudioSource() = default;
 
-        winrt::event_token FrameCaptured(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Kinect::AudioSource, winrt::Windows::Kinect::FrameCapturedEventArgs> const& value);
-        void FrameCaptured(winrt::event_token const& token) noexcept;
-        winrt::Windows::Kinect::KinectSensor KinectSensor();
+        event_token FrameCaptured(Foundation::TypedEventHandler<Kinect::AudioSource, FrameCapturedEventArgs> const& value);
+        void FrameCaptured(event_token const& token) noexcept;
+        KinectSensor KinectSensor();
         bool IsActive();
         uint32_t SubFrameLengthInBytes();
-        winrt::Windows::Foundation::TimeSpan SubFrameDuration();
+        Foundation::TimeSpan SubFrameDuration();
         uint32_t MaxSubFrameCount();
-        winrt::Windows::Kinect::AudioFrameReader OpenReader();
-        winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::Kinect::AudioBeam> AudioBeams();
+        AudioFrameReader OpenReader();
+        Foundation::Collections::IVectorView<AudioBeam> AudioBeams();
     };
 }

@@ -27,23 +27,23 @@ namespace winrt::Windows::Kinect::implementation
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Kinect::ColorFrameReference MultiSourceFrame::ColorFrameReference()
+    ColorFrameReference MultiSourceFrame::ColorFrameReference()
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Kinect::DepthFrameReference MultiSourceFrame::DepthFrameReference()
+    DepthFrameReference MultiSourceFrame::DepthFrameReference()
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Kinect::BodyFrameReference MultiSourceFrame::BodyFrameReference()
+    BodyFrameReference MultiSourceFrame::BodyFrameReference()
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Kinect::BodyIndexFrameReference MultiSourceFrame::BodyIndexFrameReference()
+    BodyIndexFrameReference MultiSourceFrame::BodyIndexFrameReference()
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Kinect::InfraredFrameReference MultiSourceFrame::InfraredFrameReference()
+    InfraredFrameReference MultiSourceFrame::InfraredFrameReference()
     {
         throw hresult_not_implemented();
     }

@@ -23,7 +23,7 @@
 
 namespace winrt::Windows::Kinect::implementation
 {
-    winrt::Windows::Kinect::MultiSourceFrame MultiSourceFrameReference::AcquireFrame()
+    MultiSourceFrame MultiSourceFrameReference::AcquireFrame()
     {
         throw hresult_not_implemented();
     }

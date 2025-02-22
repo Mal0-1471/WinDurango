@@ -23,15 +23,15 @@
 
 namespace winrt::Windows::Kinect::implementation
 {
-    winrt::event_token AudioSource::FrameCaptured(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Kinect::AudioSource, winrt::Windows::Kinect::FrameCapturedEventArgs> const& value)
+    event_token AudioSource::FrameCaptured(Foundation::TypedEventHandler<Kinect::AudioSource, FrameCapturedEventArgs> const& value)
     {
         throw hresult_not_implemented();
     }
-    void AudioSource::FrameCaptured(winrt::event_token const& token) noexcept
+    void AudioSource::FrameCaptured(event_token const& token) noexcept
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Kinect::KinectSensor AudioSource::KinectSensor()
+    KinectSensor AudioSource::KinectSensor()
     {
         throw hresult_not_implemented();
     }
@@ -43,7 +43,7 @@ namespace winrt::Windows::Kinect::implementation
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Foundation::TimeSpan AudioSource::SubFrameDuration()
+    Foundation::TimeSpan AudioSource::SubFrameDuration()
     {
         throw hresult_not_implemented();
     }
@@ -51,11 +51,11 @@ namespace winrt::Windows::Kinect::implementation
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Kinect::AudioFrameReader AudioSource::OpenReader()
+    AudioFrameReader AudioSource::OpenReader()
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::Kinect::AudioBeam> AudioSource::AudioBeams()
+    Foundation::Collections::IVectorView<AudioBeam> AudioSource::AudioBeams()
     {
         throw hresult_not_implemented();
     }

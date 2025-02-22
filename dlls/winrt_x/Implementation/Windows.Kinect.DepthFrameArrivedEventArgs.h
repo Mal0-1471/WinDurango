@@ -26,6 +26,6 @@ namespace winrt::Windows::Kinect::implementation
     {
         DepthFrameArrivedEventArgs() = default;
 
-        winrt::Windows::Kinect::DepthFrameReference FrameReference();
+        DepthFrameReference FrameReference();
     };
 }

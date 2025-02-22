@@ -27,11 +27,11 @@ namespace winrt::Windows::Kinect::implementation
         ColorFrameReader() = default;
 
         void Close();
-        winrt::event_token FrameArrived(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Kinect::ColorFrameReader, winrt::Windows::Kinect::ColorFrameArrivedEventArgs> const& value);
-        void FrameArrived(winrt::event_token const& token) noexcept;
-        winrt::Windows::Kinect::ColorFrame AcquireLatestFrame();
+        event_token FrameArrived(Foundation::TypedEventHandler<Kinect::ColorFrameReader, ColorFrameArrivedEventArgs> const& value);
+        void FrameArrived(event_token const& token) noexcept;
+        ColorFrame AcquireLatestFrame();
         bool IsPaused();
         void IsPaused(bool isPaused);
-        winrt::Windows::Kinect::ColorFrameSource ColorFrameSource();
+        ColorFrameSource ColorFrameSource();
     };
 }

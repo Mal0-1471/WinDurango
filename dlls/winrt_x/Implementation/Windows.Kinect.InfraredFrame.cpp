@@ -31,23 +31,23 @@ namespace winrt::Windows::Kinect::implementation
     {
         throw hresult_not_implemented();
     }
-    void InfraredFrame::CopyFrameDataToBuffer(winrt::Windows::Storage::Streams::IBuffer const& buffer)
+    void InfraredFrame::CopyFrameDataToBuffer(Storage::Streams::IBuffer const& buffer)
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Storage::Streams::IBuffer InfraredFrame::LockImageBuffer()
+    Storage::Streams::IBuffer InfraredFrame::LockImageBuffer()
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Kinect::FrameDescription InfraredFrame::FrameDescription()
+    FrameDescription InfraredFrame::FrameDescription()
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Foundation::TimeSpan InfraredFrame::RelativeTime()
+    Foundation::TimeSpan InfraredFrame::RelativeTime()
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Kinect::InfraredFrameSource InfraredFrame::InfraredFrameSource()
+    InfraredFrameSource InfraredFrame::InfraredFrameSource()
     {
         throw hresult_not_implemented();
     }

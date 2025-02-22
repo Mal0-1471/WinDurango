@@ -28,14 +28,14 @@ namespace winrt::Windows::Kinect::implementation
 
         void Close();
         uint32_t FrameLengthInBytes();
-        winrt::Windows::Foundation::TimeSpan Duration();
+        Foundation::TimeSpan Duration();
         float BeamAngle();
         float BeamAngleConfidence();
-        winrt::Windows::Kinect::AudioBeamMode AudioBeamMode();
-        winrt::Windows::Foundation::TimeSpan RelativeTime();
-        winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::Kinect::AudioBodyCorrelation> AudioBodyCorrelations();
+        AudioBeamMode AudioBeamMode();
+        Foundation::TimeSpan RelativeTime();
+        Foundation::Collections::IVectorView<AudioBodyCorrelation> AudioBodyCorrelations();
         void CopyFrameDataToArray(array_view<uint8_t> frameData);
-        void CopyFrameDataToBuffer(winrt::Windows::Storage::Streams::IBuffer const& buffer);
-        winrt::Windows::Storage::Streams::IBuffer LockAudioBuffer();
+        void CopyFrameDataToBuffer(Storage::Streams::IBuffer const& buffer);
+        Storage::Streams::IBuffer LockAudioBuffer();
     };
 }

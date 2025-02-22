@@ -26,6 +26,6 @@ namespace winrt::Windows::Kinect::implementation
     {
         AudioFrameArrivedEventArgs() = default;
 
-        winrt::Windows::Kinect::AudioBeamFrameReference FrameReference();
+        AudioBeamFrameReference FrameReference();
     };
 }

@@ -27,15 +27,15 @@ namespace winrt::Windows::Kinect::implementation
         ColorFrame() = default;
 
         void Close();
-        winrt::Windows::Kinect::ColorImageFormat RawColorImageFormat();
-        winrt::Windows::Kinect::FrameDescription FrameDescription();
+        ColorImageFormat RawColorImageFormat();
+        FrameDescription FrameDescription();
         void CopyRawFrameDataToArray(array_view<uint8_t> frameData);
-        void CopyRawFrameDataToBuffer(winrt::Windows::Storage::Streams::IBuffer const& buffer);
-        winrt::Windows::Storage::Streams::IBuffer LockRawImageBuffer();
-        void CopyConvertedFrameDataToArray(array_view<uint8_t> frameData, winrt::Windows::Kinect::ColorImageFormat const& colorFormat);
-        void CopyConvertedFrameDataToBuffer(winrt::Windows::Storage::Streams::IBuffer const& buffer, winrt::Windows::Kinect::ColorImageFormat const& colorFormat);
-        winrt::Windows::Kinect::FrameDescription CreateFrameDescription(winrt::Windows::Kinect::ColorImageFormat const& format);
-        winrt::Windows::Foundation::TimeSpan RelativeTime();
-        winrt::Windows::Kinect::ColorFrameSource ColorFrameSource();
+        void CopyRawFrameDataToBuffer(Storage::Streams::IBuffer const& buffer);
+        Storage::Streams::IBuffer LockRawImageBuffer();
+        void CopyConvertedFrameDataToArray(array_view<uint8_t> frameData, ColorImageFormat const& colorFormat);
+        void CopyConvertedFrameDataToBuffer(Storage::Streams::IBuffer const& buffer, ColorImageFormat const& colorFormat);
+        Kinect::FrameDescription CreateFrameDescription(ColorImageFormat const& format);
+        Foundation::TimeSpan RelativeTime();
+        ColorFrameSource ColorFrameSource();
     };
 }

@@ -27,7 +27,7 @@ namespace winrt::Windows::Kinect::implementation
     {
         throw hresult_not_implemented();
     }
-    void BodyFrame::GetAndRefreshBodyData(winrt::Windows::Foundation::Collections::IVector<winrt::Windows::Kinect::Body> const& bodies)
+    void BodyFrame::GetAndRefreshBodyData(Foundation::Collections::IVector<Body> const& bodies)
     {
         throw hresult_not_implemented();
     }
@@ -35,15 +35,15 @@ namespace winrt::Windows::Kinect::implementation
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Kinect::Vector4 BodyFrame::FloorClipPlane()
+    Vector4 BodyFrame::FloorClipPlane()
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Foundation::TimeSpan BodyFrame::RelativeTime()
+    Foundation::TimeSpan BodyFrame::RelativeTime()
     {
         throw hresult_not_implemented();
     }
-    winrt::Windows::Kinect::BodyFrameSource BodyFrame::BodyFrameSource()
+    BodyFrameSource BodyFrame::BodyFrameSource()
     {
         throw hresult_not_implemented();
     }

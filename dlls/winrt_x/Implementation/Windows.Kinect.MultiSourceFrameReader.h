@@ -27,12 +27,12 @@ namespace winrt::Windows::Kinect::implementation
         MultiSourceFrameReader() = default;
 
         void Close();
-        winrt::event_token MultiSourceFrameArrived(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Kinect::MultiSourceFrameReader, winrt::Windows::Kinect::MultiSourceFrameArrivedEventArgs> const& value);
-        void MultiSourceFrameArrived(winrt::event_token const& token) noexcept;
-        winrt::Windows::Kinect::MultiSourceFrame AcquireLatestFrame();
-        winrt::Windows::Kinect::FrameSourceTypes FrameSourceTypes();
+        event_token MultiSourceFrameArrived(Foundation::TypedEventHandler<Kinect::MultiSourceFrameReader, MultiSourceFrameArrivedEventArgs> const& value);
+        void MultiSourceFrameArrived(event_token const& token) noexcept;
+        MultiSourceFrame AcquireLatestFrame();
+        FrameSourceTypes FrameSourceTypes();
         bool IsPaused();
         void IsPaused(bool isPaused);
-        winrt::Windows::Kinect::KinectSensor KinectSensor();
+        KinectSensor KinectSensor();
     };
 }
