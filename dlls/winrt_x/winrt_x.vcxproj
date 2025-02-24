@@ -82,7 +82,28 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(ProjectDir)\External</IncludePath>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(ProjectDir)\External;$(ProjectDir)\$(PlatformShortName)\$(Configuration)\Generated Files;$(ProjectDir)\</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);;D:\Documents\Visual Studio 2022\Projects\WinDurango\dlls\winrt_x\x64\Debug\Generated Files</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);;D:\Documents\Visual Studio 2022\Projects\WinDurango\dlls\winrt_x\x64\Debug\Generated Files</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);;D:\Documents\Visual Studio 2022\Projects\WinDurango\dlls\winrt_x\x64\Debug\Generated Files</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);;D:\Documents\Visual Studio 2022\Projects\WinDurango\dlls\winrt_x\x64\Debug\Generated Files</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);;D:\Documents\Visual Studio 2022\Projects\WinDurango\dlls\winrt_x\x64\Debug\Generated Files</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);;D:\Documents\Visual Studio 2022\Projects\WinDurango\dlls\winrt_x\x64\Debug\Generated Files</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(ProjectDir)\External;$(ProjectDir)\$(PlatformShortName)\$(Configuration)\Generated Files;$(ProjectDir)\</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>
