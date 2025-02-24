@@ -43,3 +43,4 @@ resharper_cpp_member_function_may_be_const_highlighting = none
 resharper_cpp_clang_tidy_hicpp_exception_baseclass_highlighting = none
 resharper_cpp_clang_tidy_bugprone_reserved_identifier_highlighting = none
 resharper_cpp_non_explicit_converting_constructor_highlighting = none
+resharper_inconsistent_naming_highlighting = none
