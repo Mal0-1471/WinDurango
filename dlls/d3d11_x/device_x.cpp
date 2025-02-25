@@ -268,9 +268,9 @@ void wd::device_x::GetDriverStatistics(UINT StructSize, wdi::D3D11X_DRIVER_STATI
 	throw std::logic_error("Not implemented");
 }
 
-HRESULT wd::device_x::CreateComputeContextX(const wdi::D3D11_COMPUTE_CONTEXT_DESC* pComputeContextDesc,
-										wdi::ID3D11ComputeContextX** ppComputeContext)
+HRESULT wd::device_x::CreateComputeContextX(const wdi::D3D11_COMPUTE_CONTEXT_DESC* pComputeContextDesc, wdi::ID3D11ComputeContextX** ppComputeContext)
 {
+	printf("WARN: CreateComputeContextX is not implemented\n");
 	throw std::logic_error("Not implemented");
 }
 
@@ -326,7 +326,8 @@ UINT wd::device_x::GetDebugFlags( )
 void wd::device_x::SetHangCallbacks(wdi::D3D11XHANGBEGINCALLBACK pBeginCallback, wdi::D3D11XHANGPRINTCALLBACK pPrintCallback,
 								wdi::D3D11XHANGDUMPCALLBACK pDumpCallback)
 {
-	throw std::logic_error("Not implemented");
+	printf("WARN: SetHangCallbacks is not implemented\n");
+	throw std::logic_error("Not implemented"); //UNCOMMENT ME WHEN DONE!!!
 }
 
 void wd::device_x::ReportGpuHang(UINT Flags)
