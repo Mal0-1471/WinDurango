@@ -327,7 +327,7 @@ void wd::device_x::SetHangCallbacks(wdi::D3D11XHANGBEGINCALLBACK pBeginCallback,
 								wdi::D3D11XHANGDUMPCALLBACK pDumpCallback)
 {
 	printf("WARN: SetHangCallbacks is not implemented\n");
-	throw std::logic_error("Not implemented"); //UNCOMMENT ME WHEN DONE!!!
+	//throw std::logic_error("Not implemented"); //UNCOMMENT ME WHEN IMPLEMENTED!!!
 }
 
 void wd::device_x::ReportGpuHang(UINT Flags)

@@ -1,0 +1,2 @@
+SetHangCallbacks (first unimplemented function called)
+CreateComputeContextX (last unimplemented function called, crashes afterwards, if does something wrong then it will crash d3d11)
