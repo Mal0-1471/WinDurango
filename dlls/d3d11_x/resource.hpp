@@ -1,6 +1,7 @@
 #pragma once
 #include "device_child_x.h"
 #include "device_context_x.h"
+#include "compute_context_x.h"
 
 namespace wdi
 {

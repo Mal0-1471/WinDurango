@@ -7,7 +7,7 @@
 
 namespace wdi
 {
-	D3DINTERFACE(ID3D11DeviceChild, 1841e5c8, 16b0, 489b, bc, c8, 44, cf, b0, d5, de, ae) : public wd::graphics_unknown {
+		D3DINTERFACE(ID3D11DeviceChild, 1841e5c8, 16b0, 489b, bc, c8, 44, cf, b0, d5, de, ae) : public wd::graphics_unknown {
 		ID3D11Device* m_pDevice;
 		void* m_pPrivateData;
 

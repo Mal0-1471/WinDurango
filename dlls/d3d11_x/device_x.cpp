@@ -1,5 +1,4 @@
 #include "device_x.h"
-//#include "compute_context.h"
 #include <stdexcept>
 #include "resource.hpp"
 #include "view.hpp"
@@ -273,19 +272,10 @@ void wd::device_x::GetDriverStatistics(UINT StructSize, wdi::D3D11X_DRIVER_STATI
 HRESULT wd::device_x::CreateComputeContextX(const wdi::D3D11_COMPUTE_CONTEXT_DESC* pComputeContextDesc, wdi::ID3D11ComputeContextX** ppComputeContext)
 {
 	printf("WARN: CreateComputeContextX is not implemented\n");
-	
-	::ID3D11DeviceContext* ctx{};
-	HRESULT hr = wrapped_interface->CreateDeferredContext(0, &ctx);
 
-	if (ppComputeContext != nullptr && SUCCEEDED(hr))
-	{
-		::ID3D11DeviceContext2* ctx2{};
-		ctx->QueryInterface(IID_PPV_ARGS(&ctx2));
+	*ppComputeContext = new compute_context_x(); // Need to set ppComputeContext to a new compute_context_x, while this is not enough to prevent crashing
 
-		//*ppComputeContext = reinterpret_cast<wdi::ID3D11ComputeContextX*>(new compute_context_x(ctx2));
-	}
-
-	return hr;
+	return S_OK;
 }
 
 void wd::device_x::ComposeShaderResourceView(const wdi::D3D11X_DESCRIPTOR_RESOURCE* pDescriptorResource,
