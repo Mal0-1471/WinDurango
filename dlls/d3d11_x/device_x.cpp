@@ -273,7 +273,7 @@ HRESULT wd::device_x::CreateComputeContextX(const wdi::D3D11_COMPUTE_CONTEXT_DES
 	{
 	printf("WARN: CreateComputeContextX is not implemented\n");
 	//throw std::logic_error("Not implemented");
-	return S_OK;
+	return S_FALSE;
 }
 
 void wd::device_x::ComposeShaderResourceView(const wdi::D3D11X_DESCRIPTOR_RESOURCE* pDescriptorResource,
