@@ -1,0 +1,4 @@
+0x00007FF779CA0000				140700876931072		[Base Address from modules]
+game_Release.exe!00007ff77b75d024() 		140700904968228		[CreateComputeContextX]
+game_Release.exe!00007ff77b719785()					[SetHangCallbacks]
+game_Release.exe!00007ff77b75d043()					[Unknown]

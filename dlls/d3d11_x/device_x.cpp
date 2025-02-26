@@ -141,6 +141,7 @@ HRESULT wd::device_x::CreateDeferredContext(UINT ContextFlags, ID3D11DeviceConte
 	return hr;
 }
 
+
 void wd::device_x::GetImmediateContext(ID3D11DeviceContext** ppImmediateContext)
 {
 	::ID3D11DeviceContext* ctx{};
@@ -269,9 +270,10 @@ void wd::device_x::GetDriverStatistics(UINT StructSize, wdi::D3D11X_DRIVER_STATI
 }
 
 HRESULT wd::device_x::CreateComputeContextX(const wdi::D3D11_COMPUTE_CONTEXT_DESC* pComputeContextDesc, wdi::ID3D11ComputeContextX** ppComputeContext)
-{
+	{
 	printf("WARN: CreateComputeContextX is not implemented\n");
-	throw std::logic_error("Not implemented");
+	//throw std::logic_error("Not implemented");
+	return S_OK;
 }
 
 void wd::device_x::ComposeShaderResourceView(const wdi::D3D11X_DESCRIPTOR_RESOURCE* pDescriptorResource,
