@@ -56,6 +56,9 @@
       <Filter>overlay</Filter>
     </ClCompile>
     <ClCompile Include="dxgi_object.cpp" />
+    <ClCompile Include="compute_context_x.cpp">
+      <Filter>wrappers\compute_context_x</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="d3d11_x.h" />
@@ -119,6 +122,9 @@
     <ClInclude Include="dxgi_object.hpp">
       <Filter>wrappers\shared</Filter>
     </ClInclude>
+    <ClInclude Include="compute_context_x.h">
+      <Filter>wrappers\compute_context_x</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="imgui">
@@ -156,6 +162,9 @@
     </Filter>
     <Filter Include="overlay">
       <UniqueIdentifier>{c54987f8-e8bd-47e3-8940-2740f44a8f49}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="wrappers\compute_context_x">
+      <UniqueIdentifier>{8e4fd4ab-0778-46ef-ac61-83cb334e918a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
