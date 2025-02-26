@@ -1,0 +1,1 @@
+Figure out what's causing the nullptr after CreateComputeContextX then figure out what the QueryInterface call actually is and why/where

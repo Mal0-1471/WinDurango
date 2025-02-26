@@ -5,4 +5,4 @@ game_Release.exe!00007ff77b719785()					[SetHangCallbacks]
 game_Release.exe!00007ff77b75d043()					[Unknown] // Happens after ComputeCreateContextX which then crashes immediately after
 game_Release.exe!0000001785CFFB90()					[Unknown]
 game_Release.exe!00007ff77a8d9378()					[Unknown]
-00007FF77BC45D58							[Hit after CreateComputeContextX only gives a new compute_context_x]
+00007FF77BC45D58							[QueryInterface that fails, qword_1453A9D28]
