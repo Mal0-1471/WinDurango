@@ -51,8 +51,10 @@
     <LibraryPath>$(LibraryPath);$(ProjectDir)\..\..\thirdparty\Detours\lib.X64;</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(IncludePath);$(SolutionPath)\thirdparty\thirdparty\Detours\includes</IncludePath>
-    <LibraryPath>$(LibraryPath);$(SolutionPath)\thirdparty\thirdparty\Detours\lib.X64;</LibraryPath>
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(Platform)\$(Configuration)\</IntDir>
+    <IncludePath>$(IncludePath);$(ProjectDir)\..\..\thirdparty\Detours\include</IncludePath>
+    <LibraryPath>$(LibraryPath);$(ProjectDir)\..\..\thirdparty\Detours\lib.X64;</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -91,7 +93,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <AdditionalDependencies>ntdll.lib;detours.lib;runtimeobject.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>ntdll.lib;detours.lib;runtimeobject.lib;shlwapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ModuleDefinitionFile>Exports.def</ModuleDefinitionFile>
     </Link>
   </ItemDefinitionGroup>

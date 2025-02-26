@@ -3,6 +3,7 @@
 #include "ForzaThreadHook_X.h"
 #include "kernelx.h"
 #include <Windows.h>
+#include "Shlwapi.h"
 
 // note from unixian: i used this since using appxlauncher requires me attaching to the game after it launches
 #define WINDURANGO_WAIT_FOR_DEBUGGER 0
