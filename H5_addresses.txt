@@ -8,4 +8,6 @@ game_Release.exe!00007ff77a8d9378()					[Unknown]
 00007FF77BC45D58							[QueryInterface that fails, qword_1453A9D28]
 0x00007FF701DF80B1							[XGCreateTexture2DComputer] 0x141A780B1
 0x00007FF702325D58							[query interface / rax+2] 0x141FA5D58
-0x00007FF701E1C12C
+0x00007FF701E1C12C							[unknown, 141A9C12C]
+0x00007FFB6ED1B699							[unknown, 141FA5D58]
+0x00007ff702325d58							[Unknown, 141FA5D58]

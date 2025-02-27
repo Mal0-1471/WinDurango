@@ -127,17 +127,10 @@ HRESULT wd::device_x::CreateDepthStencilView(ID3D11Resource* pResource, const D3
 
 HRESULT wd::device_x::CreateDeferredContext(UINT ContextFlags, ID3D11DeviceContext** ppDeferredContext)
 {
-	if (ContextFlags == 131072) // Temp to indicate the game tried to draw bundles, but we dont have code for that right now.
+	if (ContextFlags != 0)
 	{
-		printf("WARN: DrawBundles not implemented\n");
-		::ID3D11DeviceContext* ctx{};
-		HRESULT hr = wrapped_interface->CreateDeferredContext(0, &ctx);
-
-		::ID3D11DeviceContext2* ctx2{};
-		ctx->QueryInterface(IID_PPV_ARGS(&ctx2));
-
-		*ppDeferredContext = reinterpret_cast<ID3D11DeviceContext*>(new device_context_x(ctx2));
-		return hr;
+		printf("WARN: CreateDeferredContext ContextFlags = %x\n", ContextFlags);
+		ContextFlags = 0;
 	}
 
 	::ID3D11DeviceContext* ctx{};
@@ -284,10 +277,9 @@ void wd::device_x::GetDriverStatistics(UINT StructSize, wdi::D3D11X_DRIVER_STATI
 
 HRESULT wd::device_x::CreateComputeContextX(const wdi::D3D11_COMPUTE_CONTEXT_DESC* pComputeContextDesc, wdi::ID3D11ComputeContextX** ppComputeContext)
 {
-	printf("WARN: CreateComputeContextX is not implemented\n");
+	//printf("WARN: CreateComputeContextX is not implemented\n");
 
-	*ppComputeContext = new compute_context_x(); // Need to set ppComputeContext to a new compute_context_x, while this is not enough to prevent crashing
-
+	*ppComputeContext = new compute_context_x(); // Need to set ppComputeContext to a new compute_context_x
 	return S_OK;
 }
 
