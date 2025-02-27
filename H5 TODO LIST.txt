@@ -1,1 +1,1 @@
-Figure out what's causing the nullptr after CreateComputeContextX then figure out what the QueryInterface call actually is and why/where
+CreateDeferredContext needs to be updated to 'draw bundles' as that's what Halo 5 requests at this point during boot, fuck.
