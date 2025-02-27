@@ -131,7 +131,6 @@ HRESULT wd::device_x::CreateDeferredContext(UINT ContextFlags, ID3D11DeviceConte
 	{
 		printf("WARN: DrawBundles not implemented\n");
 		throw std::logic_error("Not implemented");
-		return S_FALSE;
 	}
 
 	::ID3D11DeviceContext* ctx{};
