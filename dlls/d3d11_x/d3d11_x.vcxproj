@@ -103,6 +103,7 @@
     <ClCompile Include="..\..\thirdparty\imgui\imgui_tables.cpp" />
     <ClCompile Include="..\..\thirdparty\imgui\imgui_widgets.cpp" />
     <ClCompile Include="..\..\thirdparty\imgui_impl_uwp.cpp" />
+    <ClCompile Include="bundle_context_x.cpp" />
     <ClCompile Include="compute_context_x.cpp" />
     <ClCompile Include="d3d11_x.cpp" />
     <ClCompile Include="device_child_x.cpp" />
@@ -126,6 +127,7 @@
     <ClInclude Include="..\..\thirdparty\imgui\imstb_textedit.h" />
     <ClInclude Include="..\..\thirdparty\imgui\imstb_truetype.h" />
     <ClInclude Include="..\..\thirdparty\imgui_impl_uwp.h" />
+    <ClInclude Include="bundle_context_x.h" />
     <ClInclude Include="compute_context_x.h" />
     <ClInclude Include="d3d11_x.h" />
     <ClInclude Include="device_child_x.h" />

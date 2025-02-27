@@ -130,7 +130,14 @@ HRESULT wd::device_x::CreateDeferredContext(UINT ContextFlags, ID3D11DeviceConte
 	if (ContextFlags == 131072) // Temp to indicate the game tried to draw bundles, but we dont have code for that right now.
 	{
 		printf("WARN: DrawBundles not implemented\n");
-		throw std::logic_error("Not implemented");
+		::ID3D11DeviceContext* ctx{};
+		HRESULT hr = wrapped_interface->CreateDeferredContext(0, &ctx);
+
+		::ID3D11DeviceContext2* ctx2{};
+		ctx->QueryInterface(IID_PPV_ARGS(&ctx2));
+
+		*ppDeferredContext = reinterpret_cast<ID3D11DeviceContext*>(new device_context_x(ctx2));
+		return hr;
 	}
 
 	::ID3D11DeviceContext* ctx{};

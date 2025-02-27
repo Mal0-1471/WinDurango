@@ -59,6 +59,9 @@
     <ClCompile Include="compute_context_x.cpp">
       <Filter>wrappers\compute_context_x</Filter>
     </ClCompile>
+    <ClCompile Include="bundle_context_x.cpp">
+      <Filter>wrappers\bundle_context_x</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="d3d11_x.h" />
@@ -125,6 +128,9 @@
     <ClInclude Include="compute_context_x.h">
       <Filter>wrappers\compute_context_x</Filter>
     </ClInclude>
+    <ClInclude Include="bundle_context_x.h">
+      <Filter>wrappers\bundle_context_x</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="imgui">
@@ -165,6 +171,9 @@
     </Filter>
     <Filter Include="wrappers\compute_context_x">
       <UniqueIdentifier>{8e4fd4ab-0778-46ef-ac61-83cb334e918a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="wrappers\bundle_context_x">
+      <UniqueIdentifier>{e5ea3510-2855-4878-8d29-7eac28ec5124}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
