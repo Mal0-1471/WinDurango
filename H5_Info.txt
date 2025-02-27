@@ -1,2 +1,4 @@
 SetHangCallbacks (first unimplemented function called)
-CreateComputeContextX (last unimplemented function called, crashes afterwards, if does something wrong then it will crash d3d11)
+CreateComputeContextX (does something and also sets ppComputeContext to a new compute_context_x temp code)
+
+Crashes seemingly due to WinRT_X calls? see #development chat in the Discord.
