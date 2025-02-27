@@ -1,0 +1,5 @@
+These functions are called on a newly created compute_context_x on boot, none of them are properly implemented and are just stubs
+
+GetDispatchFlags()
+FlushGPUCachesTopOfPipe()
+WriteGDS()

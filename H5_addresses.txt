@@ -6,3 +6,5 @@ game_Release.exe!00007ff77b75d043()					[Unknown] // Happens after ComputeCreate
 game_Release.exe!0000001785CFFB90()					[Unknown]
 game_Release.exe!00007ff77a8d9378()					[Unknown]
 00007FF77BC45D58							[QueryInterface that fails, qword_1453A9D28]
+0x00007FF701DF80B1							[unknown first called after ok popup, tries to ref nullptr]
+0x00007FF702325D58							[unknown second called after ok popup right before crash, ditto above]

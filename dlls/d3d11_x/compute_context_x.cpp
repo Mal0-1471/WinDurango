@@ -162,7 +162,7 @@ void wd::compute_context_x::SetComputeShaderLimits(const wdi::D3D11X_COMPUTE_SHA
 
 void wd::compute_context_x::FlushGpuCachesTopOfPipe(uint32_t Count)
 {
-	throw std::logic_error("Not implemented");
+	//throw std::logic_error("Not implemented"); // UNCOMMENT ME LATER! NEEDS IMPLEMENTATION!!!
 }
 
 void wd::compute_context_x::FlushGpuCachesBottomOfPipe(uint32_t Count)
@@ -177,7 +177,7 @@ void wd::compute_context_x::SetDispatchFlags(uint32_t Count)
 
 uint32_t wd::compute_context_x::GetDispatchFlags( )
 {
-	throw std::logic_error("Not implemented");
+	//throw std::logic_error("Not implemented"); // UNCOMMENT ME LATER! NEEDS IMPLEMENTATION!!!
 	return 0;
 }
 
@@ -225,7 +225,7 @@ void wd::compute_context_x::SetGDSRange(wdi::_D3D11X_GDS_REGION_TYPE RegionType,
 
 void wd::compute_context_x::WriteGDS(wdi::_D3D11X_GDS_REGION_TYPE RegionType, uint32_t CountX, uint32_t CountY, const uint32_t* pCountX, uint32_t CountZ)
 {
-	throw std::logic_error("Not implemented");
+	//throw std::logic_error("Not implemented"); // UNCOMMENT ME LATER! NEEDS IMPLEMENTATION!!!
 }
 
 void wd::compute_context_x::ReadGDS(wdi::_D3D11X_GDS_REGION_TYPE RegionType, uint32_t CountX, uint32_t CountY, uint32_t* pCountX, uint32_t CountZ)
