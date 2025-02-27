@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "../common/common.h"
 #include "../common/debug.h"
+#include <iostream>
 
 uint32_t dword_180021AA0[16];
 uint32_t dword_180021A60[16];
@@ -425,6 +426,7 @@ LPVOID VirtualAlloc_X(
 	flAllocationType &= ALLOCATION_FLAGS_MASK;
 
     LPVOID ret = VirtualAlloc(lpAddress, dwSize, flAllocationType, flProtect);
+    std::cout << std::hex << flAllocationType << std::endl; // Check for bad memory flags for Halo 5 boot
 
 	// backup plan in the case that VirtualAlloc fails despite the flags being masked away
 	if (ret == nullptr)
