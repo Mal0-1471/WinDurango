@@ -127,6 +127,13 @@ HRESULT wd::device_x::CreateDepthStencilView(ID3D11Resource* pResource, const D3
 
 HRESULT wd::device_x::CreateDeferredContext(UINT ContextFlags, ID3D11DeviceContext** ppDeferredContext)
 {
+	if (ContextFlags == 131072) // Temp to indicate the game tried to draw bundles, but we dont have code for that right now.
+	{
+		printf("WARN: DrawBundles not implemented\n");
+		throw std::logic_error("Not implemented");
+		return S_FALSE;
+	}
+
 	::ID3D11DeviceContext* ctx{};
 	HRESULT hr = wrapped_interface->CreateDeferredContext(ContextFlags, &ctx);
 
