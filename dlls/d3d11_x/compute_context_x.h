@@ -1,24 +1,12 @@
 #pragma once
 
 #include "device_child_x.h"
+#include "device_context_x.h"
 #include <d3d11_1.h>
 #include <d3d11_2.h>
 
 namespace wdi
 {
-	#pragma region struct_defs
-	typedef enum D3D11X_GPU_PIPELINED_EVENT : int32_t {
-		D3D11X_GPU_PIPELINED_EVENT_STREAMOUT_FLUSH = 0x001f,
-		D3D11X_GPU_PIPELINED_EVENT_FLUSH_AND_INV_CB_PIXEL_DATA = 0x0031,
-		D3D11X_GPU_PIPELINED_EVENT_DB_CACHE_FLUSH_AND_INV = 0x002a,
-		D3D11X_GPU_PIPELINED_EVENT_FLUSH_AND_INV_CB_META = 0x002e,
-		D3D11X_GPU_PIPELINED_EVENT_FLUSH_AND_INV_DB_META = 0x002c,
-		D3D11X_GPU_PIPELINED_EVENT_CS_PARTIAL_FLUSH = 0x0407,
-		D3D11X_GPU_PIPELINED_EVENT_VS_PARTIAL_FLUSH = 0x040f,
-		D3D11X_GPU_PIPELINED_EVENT_PS_PARTIAL_FLUSH = 0x0410,
-		D3D11X_GPU_PIPELINED_EVENT_PFP_SYNC_ME = -2147483647,
-	};
-
 	typedef enum D3D11X_COMPUTE_CONTEXT_PRIORITY : int32_t {
 		D3D11X_COMPUTE_CONTEXT_PRIORITY_LOWEST = 0x0000,
 		D3D11X_COMPUTE_CONTEXT_PRIORITY_LOWER = 0x0002,
@@ -28,14 +16,7 @@ namespace wdi
 		D3D11X_COMPUTE_CONTEXT_PRIORITY_HIGHER = 0x000d,
 		D3D11X_COMPUTE_CONTEXT_PRIORITY_HIGHEST = 0x000f,
 		D3D11X_COMPUTE_CONTEXT_PRIORITY_DEFAULT = 0x0005,
-	};
-
-	typedef enum _D3D11X_GDS_REGION_TYPE : int32_t {
-		D3D11X_GDS_REGION_PS = 0x0000,
-		D3D11X_GDS_REGION_CS = 0x0001,
-	};
-	struct D3D11X_COMPUTE_SHADER_LIMITS;
-	#pragma endregion
+	} D3D11X_COMPUTE_CONTEXT_PRIORITY;
 
 	// compute contexts are created on boot of some games (e.g Halo 5) so this class is necessary to be created for whenever it's called via CreateComputeContextX
 	D3DINTERFACE(ID3D11ComputeContextX, 17c3009b, d67d, 45a2, ad, b3, 15, d8, 3e, 79, a0, 31) : public ID3D11DeviceChild
@@ -111,7 +92,7 @@ namespace wd
 	class compute_context_x : public wdi::ID3D11ComputeContextX
 	{
 		// @Patoke todo: make this access wdi::ID3D11Device instead, this is a temporary fix
-		virtual void STDMETHODCALLTYPE GetDevice(::ID3D11Device** ppDevice) override = 0;
+		virtual void STDMETHODCALLTYPE GetDevice(::ID3D11Device** ppDevice) override {};
 		virtual HRESULT STDMETHODCALLTYPE GetPrivateData(REFGUID guid, UINT* pDataSize, void* pData) override { throw std::logic_error("Not implemented"); };
 		virtual HRESULT STDMETHODCALLTYPE SetPrivateData(REFGUID guid, UINT DataSize, const void* pData) override { throw std::logic_error("Not implemented"); };
 		virtual HRESULT STDMETHODCALLTYPE SetPrivateDataInterface(REFGUID guid, const IUnknown* pData) override { throw std::logic_error("Not implemented"); };
@@ -149,22 +130,22 @@ namespace wd
 		int32_t PIXEndEvent() override;
 		void PIXSetMarker(const wchar_t* pChat) override;
 		void PIXSetMarkerEx(const void* pVoid, uint32_t Count) override;
-		void GpuSendPipelinedEvent(D3D11X_GPU_PIPELINED_EVENT Event) override;
-		void SetComputeShaderLimits(const D3D11X_COMPUTE_SHADER_LIMITS* pShaderLimits) override;
+		void GpuSendPipelinedEvent(wdi::D3D11X_GPU_PIPELINED_EVENT Event) override;
+		void SetComputeShaderLimits(const wdi::D3D11X_COMPUTE_SHADER_LIMITS* pShaderLimits) override;
 		void FlushGpuCachesTopOfPipe(uint32_t Count) override;
 		void FlushGpuCachesBottomOfPipe(uint32_t Count) override;
 		void SetDispatchFlags(uint32_t Count) override;
 		uint32_t GetDispatchFlags() override;
-		int32_t SetPriority(D3D11X_COMPUTE_CONTEXT_PRIORITY ContextPriority) override;
+		int32_t SetPriority(wdi::D3D11X_COMPUTE_CONTEXT_PRIORITY ContextPriority) override;
 		void WriteValueBottomOfPipe(void* pVoid, uint32_t Count) override;
 		void InsertThreadTraceMarker(uint32_t Count) override;
 		void SetFastResources_Debug(uint32_t* pCountX, uint32_t* pCountY) override;
 		void BeginResourceBatch(void* pVoid, uint32_t Count) override;
 		uint32_t EndResourceBatch(uint32_t* pCount) override;
 		void SetFastResourcesFromBatch_Debug(void* pVoid, uint32_t Count) override;
-		void SetGDSRange(_D3D11X_GDS_REGION_TYPE RegionType, uint32_t CountX, uint32_t CountY) override;
-		void WriteGDS(_D3D11X_GDS_REGION_TYPE RegionType, uint32_t CountX, uint32_t CountY, const uint32_t* pCountX, uint32_t CountZ) override;
-		void ReadGDS(_D3D11X_GDS_REGION_TYPE RegionType, uint32_t CountX, uint32_t CountY, uint32_t* pCountX, uint32_t CountZ) override;
+		void SetGDSRange(wdi::_D3D11X_GDS_REGION_TYPE RegionType, uint32_t CountX, uint32_t CountY) override;
+		void WriteGDS(wdi::_D3D11X_GDS_REGION_TYPE RegionType, uint32_t CountX, uint32_t CountY, const uint32_t* pCountX, uint32_t CountZ) override;
+		void ReadGDS(wdi::_D3D11X_GDS_REGION_TYPE RegionType, uint32_t CountX, uint32_t CountY, uint32_t* pCountX, uint32_t CountZ) override;
 		void InsertWaitOnMemory(const void* pVoid, uint32_t CountX, D3D11_COMPARISON_FUNC ComparisonFunc, uint32_t CountY, uint32_t CountZ) override;
 		void CSSetShaderUserData(uint32_t CountX, uint32_t CountY, const uint32_t* pCountX) override;
 		void WriteValueEndOfPipe64(void* pVoid, uint64_t Count64, uint32_t Count32) override;

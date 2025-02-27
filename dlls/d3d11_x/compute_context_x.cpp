@@ -150,12 +150,12 @@ void wd::compute_context_x::PIXSetMarkerEx(const void* pVoid, uint32_t Count)
 	throw std::logic_error("Not implemented");
 }
 
-void wd::compute_context_x::GpuSendPipelinedEvent(D3D11X_GPU_PIPELINED_EVENT Event)
+void wd::compute_context_x::GpuSendPipelinedEvent(wdi::D3D11X_GPU_PIPELINED_EVENT Event)
 {
 	throw std::logic_error("Not implemented");
 }
 
-void wd::compute_context_x::SetComputeShaderLimits(const D3D11X_COMPUTE_SHADER_LIMITS* pShaderLimits)
+void wd::compute_context_x::SetComputeShaderLimits(const wdi::D3D11X_COMPUTE_SHADER_LIMITS* pShaderLimits)
 {
 	throw std::logic_error("Not implemented");
 }
@@ -181,7 +181,7 @@ uint32_t wd::compute_context_x::GetDispatchFlags( )
 	return 0;
 }
 
-int32_t wd::compute_context_x::SetPriority(D3D11X_COMPUTE_CONTEXT_PRIORITY ContextPriority)
+int32_t wd::compute_context_x::SetPriority(wdi::D3D11X_COMPUTE_CONTEXT_PRIORITY ContextPriority)
 {
 	throw std::logic_error("Not implemented");
 	return 0;
@@ -218,17 +218,17 @@ void wd::compute_context_x::SetFastResourcesFromBatch_Debug(void* pVoid, uint32_
 	throw std::logic_error("Not implemented");
 }
 
-void wd::compute_context_x::SetGDSRange(_D3D11X_GDS_REGION_TYPE RegionType, uint32_t CountX, uint32_t CountY)
+void wd::compute_context_x::SetGDSRange(wdi::_D3D11X_GDS_REGION_TYPE RegionType, uint32_t CountX, uint32_t CountY)
 {
 	throw std::logic_error("Not implemented");
 }
 
-void wd::compute_context_x::WriteGDS(_D3D11X_GDS_REGION_TYPE RegionType, uint32_t CountX, uint32_t CountY, const uint32_t* pCountX, uint32_t CountZ)
+void wd::compute_context_x::WriteGDS(wdi::_D3D11X_GDS_REGION_TYPE RegionType, uint32_t CountX, uint32_t CountY, const uint32_t* pCountX, uint32_t CountZ)
 {
 	throw std::logic_error("Not implemented");
 }
 
-void wd::compute_context_x::ReadGDS(_D3D11X_GDS_REGION_TYPE RegionType, uint32_t CountX, uint32_t CountY, uint32_t* pCountX, uint32_t CountZ)
+void wd::compute_context_x::ReadGDS(wdi::_D3D11X_GDS_REGION_TYPE RegionType, uint32_t CountX, uint32_t CountY, uint32_t* pCountX, uint32_t CountZ)
 {
 	throw std::logic_error("Not implemented");
 }
