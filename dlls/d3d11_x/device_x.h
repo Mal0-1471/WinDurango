@@ -288,6 +288,12 @@ namespace wd
 				return S_OK;
 			}
 
+			if (riid == __uuidof(ID3D11InfoQueue)) // Halo 5 tries to call ID3D11InfoQueue queryinterface on boot, we fail it for now as it doesn't seem to be fully necessary
+			{
+				*ppvObject = nullptr;
+				return E_NOINTERFACE;
+			}
+
 			TRACE_INTERFACE_NOT_HANDLED("device_x");
 			*ppvObject = nullptr;
 			return E_NOINTERFACE;
