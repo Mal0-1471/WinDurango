@@ -1,3 +1,5 @@
+name: Publish new release to GitHub
+
 on:
   release:
     types: [published]
