@@ -422,11 +422,12 @@ LPVOID VirtualAlloc_X(
     DWORD  flProtect
 )
 {
+    std::cout << std::hex << flAllocationType << std::endl; // Check for bad memory flags for Halo 5 boot
 	flProtect &= PROTECT_FLAGS_MASK;
 	flAllocationType &= ALLOCATION_FLAGS_MASK;
+    std::cout << std::hex << flAllocationType << std::endl; // Check for bad memory flags for Halo 5 boot
 
     LPVOID ret = VirtualAlloc(lpAddress, dwSize, flAllocationType, flProtect);
-    std::cout << std::hex << flAllocationType << std::endl; // Check for bad memory flags for Halo 5 boot
 
 	// backup plan in the case that VirtualAlloc fails despite the flags being masked away
 	if (ret == nullptr)
