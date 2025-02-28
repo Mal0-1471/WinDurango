@@ -1,2 +1,1 @@
-Figure out why D3DMapEsramMemory_X is unable to get hDevice properly
-Implement CreatePlacementRenderableTexture2D and CreatePlacementBuffer
+Figure out how to flush/clear swap chains when the game tries to create a second core window swap chain

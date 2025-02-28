@@ -84,6 +84,7 @@ HRESULT wd::device_x::CreateShaderResourceView(ID3D11Resource* pResource, const 
 			: nullptr;
 	}
 
+	printf("[CreateShaderResourceView] created shader resource with return code: 0x%llX\n", hr);
 	return hr;
 }
 
