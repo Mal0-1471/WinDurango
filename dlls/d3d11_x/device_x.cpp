@@ -214,7 +214,21 @@ BOOL wd::device_x::IsResourcePending(ID3D11Resource* pResource)
 HRESULT wd::device_x::CreatePlacementBuffer(const D3D11_BUFFER_DESC* pDesc, void* pVirtualAddress,
 										ID3D11Buffer** ppBuffer)
 {
-	throw std::logic_error("Not implemented");
+	//throw std::logic_error("Not implemented"); UNCOMMENT AND IMPLEMENT ME PROPERLY!!!
+	//*ppBuffer = (ID3D11Buffer*)0xDEADBEEFDEADBEEF;
+	ID3D11Buffer* pbuffer = nullptr;
+	D3D11_SUBRESOURCE_DATA SubData;
+	SubData.pSysMem = pVirtualAddress;
+	SubData.SysMemPitch = 0;
+	SubData.SysMemSlicePitch = 0;
+
+	HRESULT hr = CreateBuffer(pDesc, &SubData, &pbuffer);
+	if (pbuffer != nullptr)
+	{
+		*ppBuffer = SUCCEEDED(hr) ? reinterpret_cast<ID3D11Buffer*>(new wd::buffer(pbuffer)) : nullptr;
+	}
+
+	return hr;
 }
 
 HRESULT wd::device_x::CreatePlacementTexture1D(const D3D11_TEXTURE1D_DESC* pDesc, UINT TileModeIndex, UINT Pitch,
@@ -267,7 +281,22 @@ HRESULT wd::device_x::CreatePlacementRenderableTexture2D(const D3D11_TEXTURE2D_D
 													 const wdi::D3D11X_RENDERABLE_TEXTURE_ADDRESSES* pAddresses,
 													 ID3D11Texture2D** ppTexture2D)
 {
-	throw std::logic_error("Not implemented");
+	//throw std::logic_error("Not implemented"); UNCOMMENT ME NEEDS IMPLEMENTATION!!
+	ID3D11Texture2D* texture2d = nullptr;
+	D3D11_SUBRESOURCE_DATA SubData;
+	SubData.SysMemPitch = Pitch;
+	SubData.SysMemSlicePitch = Pitch;
+
+	HRESULT hr = wrapped_interface->CreateTexture2D(pDesc, &SubData, &texture2d);
+
+	printf("[CreateTexture2D] created texture at 0x%llX\n", texture2d);
+
+	if (ppTexture2D != nullptr)
+	{
+		*ppTexture2D = SUCCEEDED(hr) ? reinterpret_cast<ID3D11Texture2D*>(new texture_2d(texture2d)) : nullptr;
+	}
+
+	return hr;
 }
 
 void wd::device_x::GetDriverStatistics(UINT StructSize, wdi::D3D11X_DRIVER_STATISTICS* pStatistics)

@@ -1,1 +1,2 @@
-CreateDeferredContext needs to be updated to 'draw bundles' as that's what Halo 5 requests at this point during boot, fuck.
+Figure out why D3DMapEsramMemory_X is unable to get hDevice properly
+Implement CreatePlacementRenderableTexture2D and CreatePlacementBuffer

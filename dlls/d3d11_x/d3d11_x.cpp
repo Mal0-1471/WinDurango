@@ -48,55 +48,7 @@ HRESULT CreateDevice(UINT Flags, wdi::ID3D11Device** ppDevice, wdi::ID3D11Device
 }
 HRESULT __stdcall D3DMapEsramMemory_X(UINT Flags, VOID* pVirtualAddress, UINT NumPages, const UINT* pPageList)
 {
-    DEBUGPRINT( );
-    HANDLE hDevice = INVALID_HANDLE_VALUE;
-    HRESULT result = 0;
-    DWORD accessFlags = 0;
-    HANDLE deviceHandle = INVALID_HANDLE_VALUE;
-
-    // Open a handle to the VdKmd device
-    hDevice = CreateFileW(L"\\\\.\\VdKmd", GENERIC_READ | GENERIC_WRITE, 0, nullptr, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, nullptr);
-
-    if (hDevice == INVALID_HANDLE_VALUE)
-    {
-        DWORD lastError = GetLastError( );
-        result = HRESULT_FROM_WIN32(lastError);
-    }
-    else
-    {
-        // Call DeviceIoControlHelper to check access
-        result = DeviceIoControlHelper(hDevice);
-        if (SUCCEEDED(result))
-        {
-            deviceHandle = hDevice;
-            result = S_OK;
-        }
-        else
-        {
-            CloseHandle(hDevice);
-        }
-    }
-
-    if (SUCCEEDED(result))
-    {
-        // Set access flags based on Flags parameter
-        if (Flags & 1)
-        {
-            accessFlags = 0x20000000;
-        }
-        else if (Flags & 2)
-        {
-            accessFlags = 0x80000000;
-        }
-
-        // Map the address to ESRAM
-        result = VdMapAddressToEsram(deviceHandle, accessFlags, (uintptr_t) pVirtualAddress, NumPages, pPageList);
-
-        // Close device handle after operation
-        CloseHandle(deviceHandle);
-    }
-
-    return result;
+    return S_OK;
 }
 
 HRESULT __stdcall VdMapAddressToEsram(

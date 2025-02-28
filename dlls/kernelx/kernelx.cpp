@@ -433,7 +433,20 @@ LPVOID VirtualAlloc_X(
 	if (ret == nullptr)
 	{
 		printf("VirtualAlloc failed with %i, using backup...\n", GetLastError());
-        ret = VirtualAlloc(lpAddress, dwSize, MEM_COMMIT, flProtect);
+        if (flAllocationType == 536879104)
+        {
+            printf("Flag 20002000 detected, using MEM_COMMIT as backup...\n");
+            ret = VirtualAlloc(lpAddress, dwSize, MEM_COMMIT, flProtect); // temp workaround for flag 20002000
+        }
+        else if (flAllocationType == 536883200)
+        {
+            printf("Flag 20002000 detected, using MEM_COMMIT as backup...\n");
+            ret = VirtualAlloc(lpAddress, dwSize, MEM_COMMIT, flProtect); // temp workaround for flag 20003000
+        }
+        else
+        {
+            ret = VirtualAlloc(lpAddress, dwSize, MEM_COMMIT, flProtect);
+        }
 	}
 
     assert(ret != nullptr && "VirtualAlloc should not fail, check proper handling of xbox-one specific memory protection constants.");
