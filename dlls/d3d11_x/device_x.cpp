@@ -36,10 +36,17 @@ HRESULT wd::device_x::CreateTexture1D(const D3D11_TEXTURE1D_DESC* pDesc, const D
 HRESULT wd::device_x::CreateTexture2D(const D3D11_TEXTURE2D_DESC* pDesc, const D3D11_SUBRESOURCE_DATA* pInitialData,
 	ID3D11Texture2D** ppTexture2D)
 {
-	ID3D11Texture2D* texture2d = nullptr;
-	HRESULT hr = wrapped_interface->CreateTexture2D(pDesc, pInitialData, &texture2d);
+	D3D11_TEXTURE2D_DESC pModifiedDesc = *pDesc;
+	if (pDesc->MiscFlags == 0x100001 || pDesc->MiscFlags == 0x100000) // Attempt to workaround misc flag that crashes Halo 5
+	{
+		printf("Evil Found");
+	}
+	pModifiedDesc.MiscFlags = 0;
 
-	printf("[CreateTexture2D] created texture at 0x%llX\n", texture2d);
+	ID3D11Texture2D* texture2d = nullptr;
+	HRESULT hr = wrapped_interface->CreateTexture2D(&pModifiedDesc, 0, &texture2d);
+
+	printf("[CreateTexture2D] created texture with misc flag: 0x%llX at 0x%llX\n", pModifiedDesc.MiscFlags, texture2d);
 
 	if (ppTexture2D != nullptr)
 	{
@@ -101,7 +108,11 @@ HRESULT wd::device_x::CreateRenderTargetView(ID3D11Resource* pResource, const D3
 	::ID3D11RenderTargetView* target = nullptr;
 	HRESULT hr = wrapped_interface->CreateRenderTargetView(reinterpret_cast<wd::d3d11_resource*>(pResource)->wrapped_interface, pDesc, &target);
 
-	if (ppRTView != nullptr)
+	if (ppRTView == nullptr)
+	{
+		
+	}
+	else
 	{
 		*ppRTView = SUCCEEDED(hr) ? reinterpret_cast<ID3D11RenderTargetView*>(new wd::render_target_view(target))
 			: nullptr;
@@ -214,19 +225,58 @@ BOOL wd::device_x::IsResourcePending(ID3D11Resource* pResource)
 HRESULT wd::device_x::CreatePlacementBuffer(const D3D11_BUFFER_DESC* pDesc, void* pVirtualAddress,
 										ID3D11Buffer** ppBuffer)
 {
-	throw std::logic_error("Not implemented"); // Needs implementation for Halo 5
+	printf("WARN: CreatePlacementBuffer is not implemented\n");
+
+	ID3D11Buffer* pbuffer = nullptr;
+	auto pInitialData = new D3D11_SUBRESOURCE_DATA[ pDesc->ByteWidth * pDesc->StructureByteStride ];
+	pInitialData->pSysMem = pVirtualAddress;
+	pInitialData->SysMemPitch = pDesc->ByteWidth;
+	pInitialData->SysMemSlicePitch = 0;
+
+	HRESULT hr = wrapped_interface->CreateBuffer(pDesc, pInitialData, &pbuffer);
+
+	printf("[CreatePlacementBuffer] created buffer at 0x%llX\n", pbuffer);
+
+	if (pbuffer != nullptr)
+	{
+		*ppBuffer = SUCCEEDED(hr) ? reinterpret_cast<ID3D11Buffer*>(new buffer(pbuffer)) : nullptr;
+	}
+
+	return hr;
+
+	//throw std::logic_error("Not implemented"); // Needs implementation for Halo 5
 }
 
 HRESULT wd::device_x::CreatePlacementTexture1D(const D3D11_TEXTURE1D_DESC* pDesc, UINT TileModeIndex, UINT Pitch,
 										   void* pVirtualAddress, ID3D11Texture1D** ppTexture1D)
 {
-	throw std::logic_error("Not implemented");
+	auto pInitialData = new D3D11_SUBRESOURCE_DATA[ pDesc->MipLevels * pDesc->ArraySize ];
+
+	pInitialData->pSysMem = pVirtualAddress;
+	pInitialData->SysMemPitch = Pitch;
+	pInitialData->SysMemSlicePitch = 0;
+
+	CreateTexture1D(pDesc, pInitialData, ppTexture1D);
+
+	delete[] pInitialData;
+
+	return S_OK;
 }
 
 HRESULT wd::device_x::CreatePlacementTexture2D(const D3D11_TEXTURE2D_DESC* pDesc, UINT TileModeIndex, UINT Pitch,
 										   void* pVirtualAddress, ID3D11Texture2D** ppTexture2D)
 {
-	throw std::logic_error("Not implemented");
+	auto pInitialData = new D3D11_SUBRESOURCE_DATA[ pDesc->MipLevels * pDesc->ArraySize ];
+
+	pInitialData->pSysMem = pVirtualAddress;
+	pInitialData->SysMemPitch = Pitch + 2;
+	pInitialData->SysMemSlicePitch = 0;
+
+	CreateTexture2D(pDesc, pInitialData, ppTexture2D);
+
+	delete[] pInitialData;
+
+	return S_OK;
 }
 
 HRESULT wd::device_x::CreatePlacementTexture3D(const D3D11_TEXTURE3D_DESC* pDesc, UINT TileModeIndex, UINT Pitch,
@@ -267,7 +317,21 @@ HRESULT wd::device_x::CreatePlacementRenderableTexture2D(const D3D11_TEXTURE2D_D
 													 const wdi::D3D11X_RENDERABLE_TEXTURE_ADDRESSES* pAddresses,
 													 ID3D11Texture2D** ppTexture2D)
 {
-	throw std::logic_error("Not implemented");
+	printf("WARN: CreatePlacementRenderableTexture2D is not implemented\n");
+
+	//*ppTexture2D = (ID3D11Texture2D*)0xDEADBEEFDEADBEEF;
+
+	auto pInitialData = new D3D11_SUBRESOURCE_DATA[ pDesc->MipLevels * pDesc->ArraySize ];
+
+	pInitialData->pSysMem = ppTexture2D;
+	pInitialData->SysMemPitch = Pitch + 2;
+	pInitialData->SysMemSlicePitch = 0;
+
+	CreateTexture2D(pDesc, pInitialData, ppTexture2D);
+
+	delete[] pInitialData;
+
+	return S_OK;
 }
 
 void wd::device_x::GetDriverStatistics(UINT StructSize, wdi::D3D11X_DRIVER_STATISTICS* pStatistics)

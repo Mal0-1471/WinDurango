@@ -244,8 +244,8 @@ namespace wd
 
 		HRESULT SetName(LPCWSTR pName) override
 		{
-			TRACE_NOT_IMPLEMENTED("texture_2d");
-			return E_NOTIMPL;
+			//TRACE_NOT_IMPLEMENTED("texture_2d");
+			return S_OK;
 		}
 
 		void GetType(D3D11_RESOURCE_DIMENSION* pResourceDimension) override

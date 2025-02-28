@@ -428,7 +428,13 @@ void wd::device_context_x::ClearUnorderedAccessViewFloat(ID3D11UnorderedAccessVi
 void wd::device_context_x::ClearDepthStencilView(ID3D11DepthStencilView* pDepthStencilView, UINT ClearFlags,
 	FLOAT Depth, UINT8 Stencil)
 {
-	wrapped_interface->ClearDepthStencilView(pDepthStencilView, ClearFlags, Depth, Stencil);
+	::ID3D11DepthStencilView* target = nullptr;
+	if (pDepthStencilView != nullptr)
+	{
+		pDepthStencilView = reinterpret_cast<ID3D11DepthStencilView*>(new depth_stencil_view(target));
+	}
+
+	wrapped_interface->ClearDepthStencilView(target, ClearFlags, Depth, Stencil);
 }
 
 void wd::device_context_x::GenerateMips(ID3D11ShaderResourceView* pShaderResourceView)

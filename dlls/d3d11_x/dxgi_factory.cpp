@@ -38,6 +38,7 @@ HRESULT wd::dxgi_factory::CreateSwapChainForHwnd(IGraphicsUnknown* pDevice, HWND
 HRESULT wd::dxgi_factory::CreateSwapChainForCoreWindow(IGraphicsUnknown* pDevice, IUnknown* pWindow,
 	DXGI_SWAP_CHAIN_DESC1* pDesc, IDXGIOutput* pRestrictToOutput, IDXGISwapChain1** ppSwapChain)
 {
+	printf("[CreateSwapChainForCoreWindow] created CoreWindow SwapChain with flags: 0x%llX\n", pDesc->Flags);
 	IDXGISwapChain1* swap = nullptr;
 	HRESULT hr;
 	pDesc->Flags &= DXGI_SWAPCHAIN_FLAG_MASK;
