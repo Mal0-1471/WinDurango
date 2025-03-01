@@ -60,3 +60,10 @@ typedef struct _TITLEMEMORYSTATUS {
 	DWORDLONG ullTitleUsed;
 	DWORDLONG ullTitleAvail;
 } TITLEMEMORYSTATUS, * PTITLEMEMORYSTATUS, * LPTITLEMEMORYSTATUS;
+
+LPVOID __stdcall VirtualAllocEx_X(
+	HANDLE hProcess,
+	LPVOID lpAddress,
+	SIZE_T dwSize,
+	DWORD flAllocationType,
+	DWORD flProtect);
