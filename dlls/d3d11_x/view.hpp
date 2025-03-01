@@ -86,7 +86,7 @@ namespace wd
 
     	HRESULT QueryInterface(const IID& riid, void** ppvObject) override
         {
-            if (riid == __uuidof(wdi::ID3D11RenderTargetView))
+            if (riid == __uuidof(wdi::ID3D11RenderTargetView) || riid == __uuidof(wdi::ID3D11View) || riid == __uuidof(wdi::ID3D11DepthStencilView))
             {
                 *ppvObject = this;
                 AddRef( );
@@ -174,6 +174,7 @@ namespace wd
 
         void STDMETHODCALLTYPE GetDesc(D3D11_DEPTH_STENCIL_VIEW_DESC* pDesc) override
         {
+            printf("WARN: depth_stencil_view:: GetDesc!!!\n");
             wrapped_interface->GetDesc(pDesc);
         }
 

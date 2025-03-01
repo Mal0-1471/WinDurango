@@ -6,8 +6,22 @@
 HRESULT wd::device_x::CreateBuffer(const D3D11_BUFFER_DESC* pDesc, const D3D11_SUBRESOURCE_DATA* pInitialData,
 	ID3D11Buffer** ppBuffer)
 {
+	auto pDesc2 = *pDesc;
+	pDesc2.MiscFlags &= D3D11_MISC_FLAGS_MASK;
+
+	if (pDesc->MiscFlags != 0x0 && pDesc->MiscFlags != 0x20000 && pDesc->MiscFlags != 0x40000 && pDesc->MiscFlags != 0x20 && pDesc->MiscFlags != 0x20020 && pDesc->MiscFlags != 0x40)
+	{
+		printf("[CreateBuffer] Unknown pDesc->MiscFlags flag!!! Value: 0x%llX\n", pDesc->MiscFlags);
+	}
+
+	if (pDesc->MiscFlags == 0x20020)
+	{
+		D3DMapEsramMemory_X(0, &pInitialData, 512, (const UINT*) 0x200);
+		pDesc2.MiscFlags = D3D11_RESOURCE_MISC_BUFFER_ALLOW_RAW_VIEWS;
+	}
+
 	ID3D11Buffer* buffer = nullptr;
-	HRESULT hr = wrapped_interface->CreateBuffer(pDesc, pInitialData, &buffer);
+	HRESULT hr = wrapped_interface->CreateBuffer(&pDesc2, pInitialData, &buffer);
 
 	if (ppBuffer != nullptr)
 	{
@@ -44,7 +58,7 @@ HRESULT wd::device_x::CreateTexture2D(const D3D11_TEXTURE2D_DESC* pDesc, const D
 	pModifiedDesc.MiscFlags = 0;
 
 	ID3D11Texture2D* texture2d = nullptr;
-	HRESULT hr = wrapped_interface->CreateTexture2D(&pModifiedDesc, 0, &texture2d);
+	HRESULT hr = wrapped_interface->CreateTexture2D(&pModifiedDesc, pInitialData, &texture2d);
 
 	printf("[CreateTexture2D] created texture with misc flag: 0x%llX at 0x%llX\n", pModifiedDesc.MiscFlags, texture2d);
 

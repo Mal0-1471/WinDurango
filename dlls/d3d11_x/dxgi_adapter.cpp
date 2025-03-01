@@ -3,6 +3,7 @@
 
 HRESULT wd::dxgi_adapter::GetParent(const IID& riid, void** ppParent)
 {
+    printf("[GetParent] Was called!!!!!\n");
     if (riid == __uuidof(IDXGIFactory) ||
 		riid == __uuidof(IDXGIFactory1) ||
 		riid == __uuidof(IDXGIFactory2))
@@ -21,11 +22,13 @@ HRESULT wd::dxgi_adapter::GetParent(const IID& riid, void** ppParent)
 
 HRESULT wd::dxgi_adapter::EnumOutputs(UINT Output, IDXGIOutput** ppOutput)
 {
+    printf("[EnumOutputs] Was called!!!!!\n");
 	return wrapped_interface->EnumOutputs(Output, ppOutput);
 }
 
 HRESULT wd::dxgi_adapter::GetDesc(DXGI_ADAPTER_DESC* pDesc)
 {
+    printf("[GetDesc] Was called!!!!!\n");
 	return wrapped_interface->GetDesc(pDesc);
 }
 

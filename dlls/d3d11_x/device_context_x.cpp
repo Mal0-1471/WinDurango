@@ -7,22 +7,26 @@
 
 void wd::device_context_x::GetDevice(ID3D11Device** ppDevice)
 {
-	throw std::logic_error("Not implemented");
+	//throw std::logic_error("Not implemented");
+	wrapped_interface->GetDevice(ppDevice);
 }
 
 HRESULT wd::device_context_x::GetPrivateData(const GUID& guid, UINT* pDataSize, void* pData)
 {
-	throw std::logic_error("Not implemented");
+	//throw std::logic_error("Not implemented");
+	return wrapped_interface->GetPrivateData(guid, pDataSize, pData);
 }
 
 HRESULT wd::device_context_x::SetPrivateData(const GUID& guid, UINT DataSize, const void* pData)
 {
-	throw std::logic_error("Not implemented");
+	//throw std::logic_error("Not implemented");
+	return wrapped_interface->SetPrivateData(guid, DataSize, pData);
 }
 
 HRESULT wd::device_context_x::SetPrivateDataInterface(const GUID& guid, const IUnknown* pData)
 {
-	throw std::logic_error("Not implemented");
+	//throw std::logic_error("Not implemented");
+	return wrapped_interface->SetPrivateDataInterface(guid, pData);
 }
 
 HRESULT wd::device_context_x::SetPrivateDataInterfaceGraphics(const GUID& guid, const IGraphicsUnknown* pData)
@@ -410,7 +414,7 @@ void wd::device_context_x::CopyStructureCount(ID3D11Buffer* pDstBuffer, UINT Dst
 
 void wd::device_context_x::ClearRenderTargetView(ID3D11RenderTargetView* pRenderTargetView, const FLOAT ColorRGBA[4])
 {
-	wrapped_interface->ClearRenderTargetView(pRenderTargetView, ColorRGBA);
+	wrapped_interface->ClearRenderTargetView(reinterpret_cast<wd::render_target_view*>(pRenderTargetView)->wrapped_interface, ColorRGBA);
 }
 
 void wd::device_context_x::ClearUnorderedAccessViewUint(ID3D11UnorderedAccessView* pUnorderedAccessView,
@@ -434,7 +438,7 @@ void wd::device_context_x::ClearDepthStencilView(ID3D11DepthStencilView* pDepthS
 		pDepthStencilView = reinterpret_cast<ID3D11DepthStencilView*>(new depth_stencil_view(target));
 	}
 
-	wrapped_interface->ClearDepthStencilView(target, ClearFlags, Depth, Stencil);
+	wrapped_interface->ClearDepthStencilView(reinterpret_cast<wd::depth_stencil_view*>(pDepthStencilView)->wrapped_interface, ClearFlags, Depth, Stencil);
 }
 
 void wd::device_context_x::GenerateMips(ID3D11ShaderResourceView* pShaderResourceView)
@@ -1099,6 +1103,7 @@ void wd::device_context_x::FlushGpuCacheRange(UINT Flags, void* pBaseAddress, SI
 void wd::device_context_x::InsertWaitUntilIdle(UINT Flags)
 {
 	// FIXME: implement, stubbing this seems to be fine for now
+	throw std::logic_error("Not implemented");
 }
 
 UINT64 wd::device_context_x::InsertFence(UINT Flags)
@@ -1109,6 +1114,7 @@ UINT64 wd::device_context_x::InsertFence(UINT Flags)
 void wd::device_context_x::InsertWaitOnFence(UINT Flags, UINT64 Fence)
 {
 	// FIXME: implement, stubbing this seems to be fine for now
+	throw std::logic_error("Not implemented");
 }
 
 void wd::device_context_x::RemapConstantBufferInheritance(wdi::D3D11_STAGE Stage, UINT Slot,
