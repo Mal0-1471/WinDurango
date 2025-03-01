@@ -75,6 +75,7 @@ HRESULT wd::dxgi_factory::CreateSwapChainForCoreWindow(IGraphicsUnknown* pDevice
 			//pLastSwapChain = nullptr;
 
 			//ppSwapChain = (IDXGISwapChain1**)0xDEADBEEFDEADBEEF;
+			printf("[CreateSwapChainForCoreWindow] Workaround! Tried making a new swap chain when one already exists, so we're gonna re-use the old one 0x%llX\n", *pLastSwapChain);
 			*ppSwapChain = pLastSwapChain;
 			return S_OK;
 		}

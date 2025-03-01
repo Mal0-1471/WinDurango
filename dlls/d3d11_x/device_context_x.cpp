@@ -1386,7 +1386,9 @@ void wd::device_context_x::OMSetSampleMask(UINT64 QuadSampleMask)
 
 UINT32* wd::device_context_x::MakeCeSpace()
 {
-	throw std::logic_error("Not implemented");
+	//throw std::logic_error("Not implemented");
+	printf("[MakeCeSpace] Not Implemented!!!\n");
+	return 0;
 }
 
 void wd::device_context_x::SetFastResources_Debug(UINT* pTableStart, UINT* pTableEnd)
