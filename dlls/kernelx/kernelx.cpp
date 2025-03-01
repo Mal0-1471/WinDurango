@@ -415,33 +415,28 @@ NTSTATUS __fastcall XMemSetAllocationHooks_X(PVOID(__fastcall* XMemAlloc)(SIZE_T
 #define PROTECT_FLAGS_MASK (PAGE_EXECUTE | PAGE_EXECUTE_READ | PAGE_EXECUTE_READWRITE | PAGE_EXECUTE_WRITECOPY | PAGE_NOACCESS | PAGE_READONLY | PAGE_READWRITE | PAGE_WRITECOPY | PAGE_GUARD | PAGE_NOCACHE)
 #define ALLOCATION_FLAGS_MASK (MEM_COMMIT | MEM_RESERVE | MEM_RESET | MEM_LARGE_PAGES | MEM_PHYSICAL | MEM_TOP_DOWN | MEM_WRITE_WATCH)
 
-LPVOID __stdcall VirtualAlloc_X(LPVOID lpAddress, SIZE_T dwSize, DWORD flAllocationType, DWORD flProtect)
-{
-    return VirtualAllocEx_X(GetCurrentProcess(), lpAddress, dwSize, flAllocationType, flProtect);
-}
-LPVOID __stdcall VirtualAllocEx_X(
-    HANDLE hProcess,
+LPVOID VirtualAlloc_X(
     LPVOID lpAddress,
     SIZE_T dwSize,
-    DWORD flAllocationType,
-    DWORD flProtect)
+    DWORD  flAllocationType,
+    DWORD  flProtect
+)
 {
-    // Check for invalid address range
-    if (reinterpret_cast<char*>(lpAddress) - 1 <= reinterpret_cast<char*>(0xFFFE))
+    flProtect &= PROTECT_FLAGS_MASK;
+    flAllocationType &= ALLOCATION_FLAGS_MASK;
+
+    LPVOID ret = VirtualAlloc(lpAddress, dwSize, flAllocationType, flProtect);
+
+    // backup plan in the case that VirtualAlloc fails despite the flags being masked away
+    if (ret == nullptr)
     {
-        SetLastError(ERROR_INVALID_PARAMETER);
-        return nullptr;
+        printf("VirtualAlloc failed with %i, using backup...\n", GetLastError());
+        ret = VirtualAlloc(lpAddress, dwSize, MEM_COMMIT, flProtect);
     }
 
-    // Use Windows API to allocate memory in the specified process
-    LPVOID allocatedMemory = ::VirtualAllocEx(hProcess, lpAddress, dwSize, flAllocationType, flProtect);
-    if (!allocatedMemory)
-    {
-        // Set last error to match failed allocation
-        SetLastError(GetLastError());
-    }
+    assert(ret != nullptr && "VirtualAlloc should not fail, check proper handling of xbox-one specific memory protection constants.");
 
-    return allocatedMemory;
+    return ret;
 }
 
 BOOL ToolingMemoryStatus_X(LPTOOLINGMEMORYSTATUS buffer)
