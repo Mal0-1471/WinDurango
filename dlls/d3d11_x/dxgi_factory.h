@@ -150,6 +150,7 @@ namespace wd {
 
 private:
         ::IDXGIFactory2* wrapped_interface;
+        IDXGISwapChain1* pLastSwapChain;
 	};
 }
 

@@ -42,6 +42,7 @@ HRESULT wd::dxgi_factory::CreateSwapChainForCoreWindow(IGraphicsUnknown* pDevice
 	IDXGISwapChain1* swap = nullptr;
 	HRESULT hr;
 	pDesc->Flags &= DXGI_SWAPCHAIN_FLAG_MASK;
+	pDesc->Flags = 0x0;
 	pDesc->Scaling = DXGI_SCALING_ASPECT_RATIO_STRETCH;
 
 	IUnknown* pRealDevice = nullptr;
@@ -68,8 +69,25 @@ HRESULT wd::dxgi_factory::CreateSwapChainForCoreWindow(IGraphicsUnknown* pDevice
 	}
 	else
 	{
+		if (pLastSwapChain)
+		{
+			//pLastSwapChain->Release( );
+			//pLastSwapChain = nullptr;
+
+			//ppSwapChain = (IDXGISwapChain1**)0xDEADBEEFDEADBEEF;
+			*ppSwapChain = pLastSwapChain;
+			return S_OK;
+		}
+		ID3D11Device* D3DDevice = reinterpret_cast<ID3D11Device*>(pRealDevice);
+		ID3D11DeviceContext* DeviceContext = nullptr;
+		D3DDevice->GetImmediateContext(&DeviceContext);
+		DeviceContext->ClearState();
 		hr = wrapped_interface->CreateSwapChainForCoreWindow(pRealDevice, reinterpret_cast<CoreWindowWrapperX*>(pWindow)->m_realWindow, pDesc, pRestrictToOutput, &swap);
-		*ppSwapChain = reinterpret_cast<IDXGISwapChain1*>(new dxgi_swapchain(swap));
+		printf("[CreateSwapChainForCoreWindow] Swap is at 0x%llX\n", *swap);
+		IDXGISwapChain1* pNewSwapChain = reinterpret_cast<IDXGISwapChain1*>(new dxgi_swapchain(swap));
+		printf("[CreateSwapChainForCoreWindow] created CoreWindow SwapChain at 0x%llX\n", *pNewSwapChain);
+		*ppSwapChain = pNewSwapChain;
+		pLastSwapChain = *ppSwapChain;
 	}
 
 	// TODO: init overlay

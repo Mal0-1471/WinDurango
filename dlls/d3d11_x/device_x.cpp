@@ -310,7 +310,9 @@ void wd::device_x::GarbageCollect(UINT Flags)
 HRESULT wd::device_x::CreateDepthStencilStateX(const D3D11_DEPTH_STENCIL_DESC* pDepthStencilStateDesc,
 										   ID3D11DepthStencilState** ppDepthStencilState)
 {
-	throw std::logic_error("Not implemented");
+	//throw std::logic_error("Not implemented");
+	HRESULT hr = wrapped_interface->CreateDepthStencilState(pDepthStencilStateDesc, ppDepthStencilState);
+	return hr;
 }
 
 HRESULT wd::device_x::CreatePlacementRenderableTexture2D(const D3D11_TEXTURE2D_DESC* pDesc, UINT TileModeIndex,
