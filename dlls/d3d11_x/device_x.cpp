@@ -310,7 +310,7 @@ void wd::device_x::GarbageCollect(UINT Flags)
 HRESULT wd::device_x::CreateDepthStencilStateX(const D3D11_DEPTH_STENCIL_DESC* pDepthStencilStateDesc,
 										   ID3D11DepthStencilState** ppDepthStencilState)
 {
-	//throw std::logic_error("Not implemented");
+	printf("[CreateDepthStencilStateX] was called!!!\n");
 	HRESULT hr = wrapped_interface->CreateDepthStencilState(pDepthStencilStateDesc, ppDepthStencilState);
 	return hr;
 }

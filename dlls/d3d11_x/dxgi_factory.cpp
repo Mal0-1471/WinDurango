@@ -42,7 +42,7 @@ HRESULT wd::dxgi_factory::CreateSwapChainForCoreWindow(IGraphicsUnknown* pDevice
 	IDXGISwapChain1* swap = nullptr;
 	HRESULT hr;
 	pDesc->Flags &= DXGI_SWAPCHAIN_FLAG_MASK;
-	pDesc->Flags = 0x0;
+	//pDesc->Flags = 0x0;
 	pDesc->Scaling = DXGI_SCALING_ASPECT_RATIO_STRETCH;
 
 	IUnknown* pRealDevice = nullptr;
