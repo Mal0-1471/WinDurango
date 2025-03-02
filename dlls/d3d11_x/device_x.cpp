@@ -51,14 +51,15 @@ HRESULT wd::device_x::CreateTexture2D(const D3D11_TEXTURE2D_DESC* pDesc, const D
 	ID3D11Texture2D** ppTexture2D)
 {
 	D3D11_TEXTURE2D_DESC pModifiedDesc = *pDesc;
+	printf("Trying to make texture with miscflag: 0x%llX\n", pDesc->MiscFlags);
 	if (pDesc->MiscFlags == 0x100001 || pDesc->MiscFlags == 0x100000) // Attempt to workaround misc flag that crashes Halo 5
 	{
-		printf("Evil Found");
+		printf("Evil texture miscflag found");
+		pModifiedDesc.MiscFlags = 0;
 	}
-	pModifiedDesc.MiscFlags = 0;
 
 	ID3D11Texture2D* texture2d = nullptr;
-	HRESULT hr = wrapped_interface->CreateTexture2D(&pModifiedDesc, pInitialData, &texture2d);
+	HRESULT hr = wrapped_interface->CreateTexture2D(&pModifiedDesc, 0, &texture2d); // Passing 0 instead of InitialData can be useful for preventing crashes, namely Forza
 
 	printf("[CreateTexture2D] created texture with misc flag: 0x%llX at 0x%llX\n", pModifiedDesc.MiscFlags, texture2d);
 
@@ -240,7 +241,7 @@ BOOL wd::device_x::IsResourcePending(ID3D11Resource* pResource)
 HRESULT wd::device_x::CreatePlacementBuffer(const D3D11_BUFFER_DESC* pDesc, void* pVirtualAddress,
 										ID3D11Buffer** ppBuffer)
 {
-	printf("WARN: CreatePlacementBuffer is not implemented\n");
+	//printf("WARN: CreatePlacementBuffer is not implemented\n");
 
 	ID3D11Buffer* pbuffer = nullptr;
 	auto pInitialData = new D3D11_SUBRESOURCE_DATA[ pDesc->ByteWidth * pDesc->StructureByteStride ];
@@ -334,7 +335,7 @@ HRESULT wd::device_x::CreatePlacementRenderableTexture2D(const D3D11_TEXTURE2D_D
 													 const wdi::D3D11X_RENDERABLE_TEXTURE_ADDRESSES* pAddresses,
 													 ID3D11Texture2D** ppTexture2D)
 {
-	printf("WARN: CreatePlacementRenderableTexture2D is not implemented\n");
+	//printf("WARN: CreatePlacementRenderableTexture2D is not implemented\n");
 
 	//*ppTexture2D = (ID3D11Texture2D*)0xDEADBEEFDEADBEEF;
 
@@ -345,6 +346,7 @@ HRESULT wd::device_x::CreatePlacementRenderableTexture2D(const D3D11_TEXTURE2D_D
 	pInitialData->SysMemSlicePitch = 0;
 
 	CreateTexture2D(pDesc, pInitialData, ppTexture2D);
+	printf("[CreatePlacementRenderableTexture2D] was made: 0x%llX\n", ppTexture2D);
 
 	delete[] pInitialData;
 
