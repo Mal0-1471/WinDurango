@@ -546,6 +546,8 @@ namespace wdi
 
 namespace wd
 {
+	static UINT32 CeRam[ 0x10000 / sizeof(UINT32) ];
+
 	struct D3D11XShaderUserDataManagerDraw
 	{
 		// Dirty flags are used for state that is handled by D3D in a deferred fashion at 
@@ -590,7 +592,7 @@ namespace wd
 
 		// Points to the location in the indirect buffer or command list currently being constructed 
 		// where the next GPU Constant Engine command will be added:
-		UINT32* m_pCeCurrent;
+		UINT32* m_pCeCurrent{CeRam};
 
 		// Points to the end of the current Constant Engine segment biased down by BiasDwordCount dwords. 
 		// If pCeRing <= pCeBiasedLimit then it's guaranteed that there are at least 64 dwords
@@ -667,6 +669,7 @@ namespace wd
 		HRESULT SetName(LPCWSTR pName) override;
 
 	public:
+		
 		void ProcessDirtyFlags()
 		{
 			// 0x46 = topology dirty flag

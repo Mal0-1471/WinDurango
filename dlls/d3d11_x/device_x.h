@@ -367,7 +367,14 @@ namespace wd
 
 		HRESULT CreateBlendState(const D3D11_BLEND_DESC* pBlendStateDesc, ID3D11BlendState** ppBlendState) override
 		{
-			return wrapped_interface->CreateBlendState(pBlendStateDesc, ppBlendState);
+			//printf("[CreateBlendState] was called!!!!! BlendStateDesc Address: %p BlendState Address: %p\n", pBlendStateDesc, ppBlendState);
+
+			const HRESULT hr = wrapped_interface->CreateBlendState(pBlendStateDesc, ppBlendState);
+			if (FAILED(hr))
+			{
+				printf("[CreateBlendState] was called and failed!!!!! BlendStateDesc Address: %p BlendState Address: %p HRESULT %x\n", pBlendStateDesc, ppBlendState, hr);
+			}
+			return hr;
 		}
 
 		HRESULT CreateDepthStencilState(const D3D11_DEPTH_STENCIL_DESC* pDepthStencilDesc, ID3D11DepthStencilState** ppDepthStencilState) override
@@ -490,6 +497,8 @@ namespace wd
 
 		HRESULT CreateBlendState1(const D3D11_BLEND_DESC1* pBlendStateDesc, ID3D11BlendState1** ppBlendState) override
 		{
+
+
 			return wrapped_interface->CreateBlendState1(pBlendStateDesc, ppBlendState);
 		}
 

@@ -13,3 +13,6 @@ game_Release.exe!00007ff77a8d9378()					[Unknown]
 0x00007ff702325d58							[Unknown, 141FA5D58]
 0x00007ff7023254c9							[Unknown, ]
 
+
+// calculated game_release.exe
+0x141EEBE39 // crashes on some builds of H5, trying to read nullptr

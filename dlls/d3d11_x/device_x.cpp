@@ -121,6 +121,8 @@ HRESULT wd::device_x::CreateUnorderedAccessView(ID3D11Resource* pResource,
 HRESULT wd::device_x::CreateRenderTargetView(ID3D11Resource* pResource, const D3D11_RENDER_TARGET_VIEW_DESC* pDesc,
                                              ID3D11RenderTargetView** ppRTView)
 {
+	printf("[CreateRenderTargetView] was called!!!\n");
+
 	::ID3D11RenderTargetView* target = nullptr;
 	HRESULT hr = wrapped_interface->CreateRenderTargetView(reinterpret_cast<wd::d3d11_resource*>(pResource)->wrapped_interface, pDesc, &target);
 
@@ -132,6 +134,11 @@ HRESULT wd::device_x::CreateRenderTargetView(ID3D11Resource* pResource, const D3
 	{
 		*ppRTView = SUCCEEDED(hr) ? reinterpret_cast<ID3D11RenderTargetView*>(new wd::render_target_view(target))
 			: nullptr;
+	}
+
+	if (FAILED(hr))
+	{
+		printf("[CreateRenderTargetView] was called and failed!!!  %x\n", hr);
 	}
 
 	return hr;
@@ -325,8 +332,12 @@ void wd::device_x::GarbageCollect(UINT Flags)
 HRESULT wd::device_x::CreateDepthStencilStateX(const D3D11_DEPTH_STENCIL_DESC* pDepthStencilStateDesc,
 										   ID3D11DepthStencilState** ppDepthStencilState)
 {
-	printf("[CreateDepthStencilStateX] was called!!!\n");
+	
 	HRESULT hr = wrapped_interface->CreateDepthStencilState(pDepthStencilStateDesc, ppDepthStencilState);
+	if (FAILED(hr))
+	{
+		printf("[CreateDepthStencilStateX] was called and failed!!!\n");
+	}
 	return hr;
 }
 

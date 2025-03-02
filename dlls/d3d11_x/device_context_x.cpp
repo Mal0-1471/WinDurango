@@ -339,6 +339,13 @@ void wd::device_context_x::OMSetRenderTargetsAndUnorderedAccessViews(UINT NumRTV
 
 void wd::device_context_x::OMSetBlendState(ID3D11BlendState* pBlendState, const FLOAT BlendFactor[4], UINT SampleMask)
 {
+	if (pBlendState == nullptr)
+	{
+		printf("[OMSetBlendState] was called but blend state was null!!!!! BlendState Address: %p\n", pBlendState);
+		return;
+	}
+
+	printf("[OMSetBlendState] was called!!!!! BlendState Address: %p\n", pBlendState);
 	wrapped_interface->OMSetBlendState(pBlendState, BlendFactor, SampleMask);
 }
 
@@ -725,6 +732,7 @@ void wd::device_context_x::OMGetRenderTargetsAndUnorderedAccessViews(UINT NumRTV
 
 void wd::device_context_x::OMGetBlendState(ID3D11BlendState** ppBlendState, FLOAT BlendFactor[4], UINT* pSampleMask)
 {
+	printf("[OMGetBlendState] was called!!!!! BlendState Address: %p\n", ppBlendState);
 	wrapped_interface->OMGetBlendState(ppBlendState, BlendFactor, pSampleMask);
 }
 
@@ -1393,7 +1401,14 @@ void wd::device_context_x::OMSetSampleMask(UINT64 QuadSampleMask)
 UINT32* wd::device_context_x::MakeCeSpace()
 {
 	// THIS NEEDS IMPLEMENTING FOR HALO 5!!!!!!!!!!
-	throw std::logic_error("Not implemented");
+	//throw std::logic_error("Not implemented");
+
+	printf("[MakeCeSpace] was called!!!!!\n");
+
+	//printf("[MakeCeSpace] created UINT32 with value %i at 0x%llX\n", *ToReturn, ToReturn);
+	m_TinyDevice.m_pCeCurrent += D3D11XTinyDevice::MakeCeSpaceDwordCount;
+	printf("[MakeCeSpace] Set TinyDevice PeCurrent at address %p\n", m_TinyDevice.m_pCeCurrent);
+	return m_TinyDevice.m_pCeCurrent;	
 }
 
 void wd::device_context_x::SetFastResources_Debug(UINT* pTableStart, UINT* pTableEnd)

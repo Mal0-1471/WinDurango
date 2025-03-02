@@ -49,7 +49,7 @@ HRESULT CreateDevice(UINT Flags, wdi::ID3D11Device** ppDevice, wdi::ID3D11Device
 
 HRESULT __stdcall D3DMapEsramMemory_X(UINT Flags, VOID* pVirtualAddress, UINT NumPages, const UINT* pPageList)
 {
-    DEBUGPRINT( );
+    //DEBUGPRINT( );
 
     //Rodrigo Todescatto: This will allocate 4mb of RAM as a stub.
     VirtualAlloc(pVirtualAddress, 0x3D0900, MEM_COMMIT, PAGE_READWRITE);
