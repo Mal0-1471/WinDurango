@@ -54,7 +54,7 @@ HRESULT wd::device_x::CreateTexture2D(const D3D11_TEXTURE2D_DESC* pDesc, const D
 	printf("Trying to make texture with miscflag: 0x%llX\n", pDesc->MiscFlags);
 	if (pDesc->MiscFlags == 0x100001 || pDesc->MiscFlags == 0x100000) // Attempt to workaround misc flag that crashes Halo 5
 	{
-		printf("Evil texture miscflag found");
+		printf("Evil texture miscflag found 0x%llX\n", pDesc->MiscFlags);
 		pModifiedDesc.MiscFlags = 0;
 	}
 
@@ -66,6 +66,11 @@ HRESULT wd::device_x::CreateTexture2D(const D3D11_TEXTURE2D_DESC* pDesc, const D
 	if (ppTexture2D != nullptr)
 	{
 		*ppTexture2D = SUCCEEDED(hr) ? reinterpret_cast<ID3D11Texture2D*>(new texture_2d(texture2d)) : nullptr;
+	}
+
+	if (FAILED(hr))
+	{
+		printf("[CreateTexture2D] failed!!\n");
 	}
 
 	return hr;
@@ -98,8 +103,11 @@ HRESULT wd::device_x::CreateShaderResourceView(ID3D11Resource* pResource, const 
 		*ppSRView = SUCCEEDED(hr) ? reinterpret_cast<ID3D11ShaderResourceView*>(new shader_resource_view(target))
 			: nullptr;
 	}
-
-	printf("[CreateShaderResourceView] created shader resource with return code: 0x%llX\n", hr);
+	
+	if (FAILED(hr))
+	{
+		printf("[CreateShaderResourceView] failed tocreated shader resource with return code: 0x%llX !!!!!!!!!!!!!!\n", hr);
+	}
 	return hr;
 }
 

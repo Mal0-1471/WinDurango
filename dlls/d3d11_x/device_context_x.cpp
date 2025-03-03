@@ -65,7 +65,18 @@ void wd::device_context_x::Draw(UINT VertexCount, UINT StartVertexLocation)
 HRESULT wd::device_context_x::Map(ID3D11Resource* pResource, UINT Subresource, D3D11_MAP MapType, UINT MapFlags,
 	D3D11_MAPPED_SUBRESOURCE* pMappedResource)
 {
-	return wrapped_interface->Map(reinterpret_cast<d3d11_resource*>(pResource)->wrapped_interface, Subresource, MapType, MapFlags, pMappedResource);
+	if (MapFlags == 0x200000)
+	{
+		printf("[Map] Overriding map flags because MapFlags was: 0x%x\n", MapFlags);
+		MapFlags = 0;
+	}
+
+	HRESULT hr = wrapped_interface->Map(reinterpret_cast<d3d11_resource*>(pResource)->wrapped_interface, Subresource, MapType, MapFlags, pMappedResource);
+	if (FAILED(hr))
+	{
+		printf("[Map] Failed to Map!!! pResource: %p Subresource: %i MapType: %p MapFlags: 0x%x pMappedResource: %p\n", pResource, Subresource, MapType, MapFlags, pMappedResource);
+	}
+	return hr;
 }
 
 void wd::device_context_x::Unmap(ID3D11Resource* pResource, UINT Subresource)
@@ -1403,8 +1414,6 @@ UINT32* wd::device_context_x::MakeCeSpace()
 	// THIS NEEDS IMPLEMENTING FOR HALO 5!!!!!!!!!!
 	//throw std::logic_error("Not implemented");
 
-	printf("[MakeCeSpace] was called!!!!!\n");
-
 	//printf("[MakeCeSpace] created UINT32 with value %i at 0x%llX\n", *ToReturn, ToReturn);
 	m_TinyDevice.m_pCeCurrent += D3D11XTinyDevice::MakeCeSpaceDwordCount;
 	printf("[MakeCeSpace] Set TinyDevice PeCurrent at address %p\n", m_TinyDevice.m_pCeCurrent);
@@ -1644,6 +1653,7 @@ void wd::device_context_x::InsertWaitOnMemory(const void* pAddress, UINT Flags,
 	D3D11_COMPARISON_FUNC ComparisonFunction, UINT ReferenceValue, UINT Mask)
 {
 	// FIXME: implement, stubbing this seems to be fine for now
+	throw std::logic_error("Not implemented");
 }
 
 void wd::device_context_x::WriteTimestampToMemory(void* pDstAddress)
@@ -1715,6 +1725,7 @@ void wd::device_context_x::InsertWaitOnMemory64(const void* pAddress, UINT Flags
 	D3D11_COMPARISON_FUNC ComparisonFunction, UINT64 ReferenceValue)
 {
 	// FIXME: implement, stubbing this seems to be fine for now
+	throw std::logic_error("Not implemented");
 }
 
 void wd::device_context_x::LoadConstantRamImmediate(UINT Flags, const void* pBuffer, UINT CeRamOffsetInBytes,
