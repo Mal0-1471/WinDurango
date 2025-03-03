@@ -456,9 +456,12 @@ HRESULT WINAPI GetActivationFactoryRedirect(PCWSTR str, REFIID riid, void** ppFa
 	HSTRING_HEADER classNameHeader;
 
 	if (FAILED(hr = WindowsCreateStringReference(str, wcslen(str), &classNameHeader, &className)))
+	{
+		printf("GetActivationFactoryRedirect: %S Failed!!!!!\n", str);
 		return hr;
+	}
 
-	//printf("GetActivationFactoryRedirect: %S\n", str);
+	printf("GetActivationFactoryRedirect: %S\n", str);
 
 	hr = RoGetActivationFactory_Hook(className, riid, ppFactory);
 	WindowsDeleteString(className);
