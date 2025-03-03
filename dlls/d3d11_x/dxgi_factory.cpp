@@ -93,6 +93,11 @@ HRESULT wd::dxgi_factory::CreateSwapChainForCoreWindow(IGraphicsUnknown* pDevice
 
 	// TODO: init overlay
 
+	if (FAILED(hr))
+	{
+		printf("[CreateSwapChainForCoreWindow] failed at 0x%llX !!!!!!!!\n", *ppSwapChain);
+	}
+
 	return hr;
 }
 

@@ -74,7 +74,7 @@ HRESULT wd::device_context_x::Map(ID3D11Resource* pResource, UINT Subresource, D
 	HRESULT hr = wrapped_interface->Map(reinterpret_cast<d3d11_resource*>(pResource)->wrapped_interface, Subresource, MapType, MapFlags, pMappedResource);
 	if (FAILED(hr))
 	{
-		printf("[Map] Failed to Map!!! pResource: %p Subresource: %i MapType: %p MapFlags: 0x%x pMappedResource: %p\n", pResource, Subresource, MapType, MapFlags, pMappedResource);
+		printf("[Map] Failed to Map!!! pResource: 0x%llX Subresource: %i MapType: 0x%llX MapFlags: 0x%x pMappedResource: 0x%llX\n", pResource, Subresource, MapType, MapFlags, pMappedResource);
 	}
 	return hr;
 }

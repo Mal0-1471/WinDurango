@@ -51,7 +51,6 @@ HRESULT wd::device_x::CreateTexture2D(const D3D11_TEXTURE2D_DESC* pDesc, const D
 	ID3D11Texture2D** ppTexture2D)
 {
 	D3D11_TEXTURE2D_DESC pModifiedDesc = *pDesc;
-	printf("Trying to make texture with miscflag: 0x%llX\n", pDesc->MiscFlags);
 	if (pDesc->MiscFlags == 0x100001 || pDesc->MiscFlags == 0x100000) // Attempt to workaround misc flag that crashes Halo 5
 	{
 		printf("Evil texture miscflag found 0x%llX\n", pDesc->MiscFlags);
@@ -59,7 +58,7 @@ HRESULT wd::device_x::CreateTexture2D(const D3D11_TEXTURE2D_DESC* pDesc, const D
 	}
 
 	ID3D11Texture2D* texture2d = nullptr;
-	HRESULT hr = wrapped_interface->CreateTexture2D(&pModifiedDesc, 0, &texture2d); // Passing 0 instead of InitialData can be useful for preventing crashes, namely Forza
+	HRESULT hr = wrapped_interface->CreateTexture2D(&pModifiedDesc, pInitialData, &texture2d); // Passing 0 instead of InitialData can be useful for preventing crashes, namely Forza
 
 	printf("[CreateTexture2D] created texture with misc flag: 0x%llX at 0x%llX\n", pModifiedDesc.MiscFlags, texture2d);
 
@@ -287,7 +286,9 @@ HRESULT wd::device_x::CreatePlacementTexture1D(const D3D11_TEXTURE1D_DESC* pDesc
 	pInitialData->SysMemPitch = Pitch;
 	pInitialData->SysMemSlicePitch = 0;
 
-	CreateTexture1D(pDesc, pInitialData, ppTexture1D);
+	printf("[CreatePlacementTexture1D] was called\n");
+	CreateTexture1D(pDesc, 0, ppTexture1D);
+	printf("[CreatePlacementTexture1D] was made: 0x%llX\n", ppTexture1D);
 
 	delete[] pInitialData;
 
@@ -300,14 +301,17 @@ HRESULT wd::device_x::CreatePlacementTexture2D(const D3D11_TEXTURE2D_DESC* pDesc
 	auto pInitialData = new D3D11_SUBRESOURCE_DATA[ pDesc->MipLevels * pDesc->ArraySize ];
 
 	pInitialData->pSysMem = pVirtualAddress;
-	pInitialData->SysMemPitch = Pitch + 2;
+	pInitialData->SysMemPitch = Pitch;
 	pInitialData->SysMemSlicePitch = 0;
 
-	CreateTexture2D(pDesc, pInitialData, ppTexture2D);
+	printf("[CreatePlacementTexture2D] was called\n");
+	CreateTexture2D(pDesc, 0, ppTexture2D);
+	printf("[CreatePlacementTexture2D] was made: 0x%llX\n", ppTexture2D);
 
 	delete[] pInitialData;
 
 	return S_OK;
+
 }
 
 HRESULT wd::device_x::CreatePlacementTexture3D(const D3D11_TEXTURE3D_DESC* pDesc, UINT TileModeIndex, UINT Pitch,
@@ -354,18 +358,15 @@ HRESULT wd::device_x::CreatePlacementRenderableTexture2D(const D3D11_TEXTURE2D_D
 													 const wdi::D3D11X_RENDERABLE_TEXTURE_ADDRESSES* pAddresses,
 													 ID3D11Texture2D** ppTexture2D)
 {
-	//printf("WARN: CreatePlacementRenderableTexture2D is not implemented\n");
-
-	//*ppTexture2D = (ID3D11Texture2D*)0xDEADBEEFDEADBEEF;
-
 	auto pInitialData = new D3D11_SUBRESOURCE_DATA[ pDesc->MipLevels * pDesc->ArraySize ];
 
 	pInitialData->pSysMem = ppTexture2D;
-	pInitialData->SysMemPitch = Pitch + 2;
+	pInitialData->SysMemPitch = Pitch;
 	pInitialData->SysMemSlicePitch = 0;
 
-	CreateTexture2D(pDesc, pInitialData, ppTexture2D);
-	printf("[CreatePlacementRenderableTexture2D] was made: 0x%llX\n", ppTexture2D);
+	printf("[Create RenderableTexture2D] was called\n");
+	CreateTexture2D(pDesc, 0, ppTexture2D);
+	printf("[Create RenderableTexture2D] was made: 0x%llX\n", ppTexture2D);
 
 	delete[] pInitialData;
 
